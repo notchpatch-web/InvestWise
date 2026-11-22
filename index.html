@@ -1,32 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InvestWise | Global Investing</title>
+<title>InvestWise | Global Markets</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#08111e;color:#eef4ff;font-family:Arial,sans-serif}
-header{padding:20px;background:#101d2e;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.logo{font-size:24px;font-weight:bold;color:#4ade80}
-nav{display:flex;gap:15px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-size:14px}
-.container{max-width:1100px;margin:auto;padding:20px}
-.hero{padding:30px 20px;background:linear-gradient(135deg,#12382d,#12243d);border-radius:18px}
-.hero h1{font-size:34px}
-.green{color:#4ade80}
-button{border:0;border-radius:10px;padding:12px;background:#4ade80;color:#07140c;font-weight:bold;cursor:pointer}
-input,select{padding:12px;border-radius:9px;border:1px solid #34465d;background:#101d2e;color:white;width:100%;margin:5px 0}
-.card{background:#111e2f;border:1px solid #25364c;border-radius:14px;padding:17px;margin:12px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.small{font-size:13px;color:#9fb0c5}
-.price{font-size:24px;font-weight:bold}
-.stockrow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-table{width:100%;border-collapse:collapse}
-td,th{padding:12px;border-bottom:1px solid #26364a;text-align:left}
-.badge{display:inline-block;background:#173c2d;color:#4ade80;padding:5px 9px;border-radius:20px;font-size:12px}
-footer{padding:30px;text-align:center;color:#8799ad}
+body{margin:0;background:#07111f;color:#eaf2ff;font-family:Arial,sans-serif}
+header{padding:22px 5%;background:#0c1c30;border-bottom:1px solid #203751;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:25px;font-weight:bold;color:#64e6b2}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:#c9d8ed;text-decoration:none;padding:8px 12px;border-radius:8px}
+nav a:hover{background:#19324d}
+main{max-width:1250px;margin:auto;padding:25px 4%}
+.hero{padding:32px;background:linear-gradient(120deg,#123456,#14263d,#153b39);border-radius:18px;margin-bottom:24px}
+.hero h1{font-size:35px;margin:0 0 12px}
+.hero p{color:#c4d4e8;line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:20px 0}
+.card{background:#102137;border:1px solid #213851;border-radius:14px;padding:20px}
+.card h3{margin-top:0;color:#a8c4e7}
+.big{font-size:27px;font-weight:bold;margin-top:10px}
+section{margin-top:35px}
+section h2{font-size:25px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+input,select{background:#0c1c30;color:white;border:1px solid #2a4663;padding:12px;border-radius:9px}
+input{flex:1;min-width:200px}
+select{min-width:160px}
+button{cursor:pointer;border:0;padding:10px 14px;border-radius:9px;background:#55d6a5;color:#061b17;font-weight:bold}
+button:hover{filter:brightness(1.1)}
+.secondary{background:#27415e;color:white}
+.danger{background:#e26c75;color:#250b0b}
+.tablewrap{overflow-x:auto;border-radius:12px}
+table{width:100%;border-collapse:collapse;background:#102137;min-width:680px}
+th,td{padding:13px;text-align:left;border-bottom:1px solid #263b54}
+th{color:#9cb9d9;background:#152941}
+td small{color:#94a9c2}
+.green{color:#66e5ad}
+.red{color:#ff8c91}
+.actions{display:flex;gap:6px;flex-wrap:wrap}
+.actions button{padding:8px 10px}
+.notice{background:#142d43;padding:14px;border-radius:10px;color:#b9d5f0;line-height:1.5}
+.market-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.market-card{background:#102137;border:1px solid #28405b;border-radius:12px;padding:15px}
+.market-card h3{margin:0 0 8px}
+.market-card p{color:#9eb4cc}
+footer{text-align:center;padding:30px;color:#91a6c0;border-top:1px solid #20334b;margin-top:50px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#55d6a5;color:#062018;padding:13px 20px;border-radius:10px;font-weight:bold;display:none;z-index:99}
+@media(max-width:600px){.hero h1{font-size:27px}header{padding:16px}main{padding:16px}}
 </style>
 </head>
 <body>
@@ -35,201 +55,269 @@ footer{padding:30px;text-align:center;color:#8799ad}
 <div class="logo">📈 InvestWise</div>
 <nav>
 <a href="#markets">Markets</a>
-<a href="#demo">Demo Account</a>
+<a href="#demo">Demo Portfolio</a>
 <a href="#watchlist">Watchlist</a>
 <a href="#learn">Learn</a>
 </nav>
 </header>
 
-<div class="container">
+<main>
+<div class="hero">
+<h1>Explore the World's Markets 🌍</h1>
+<p>Explore companies and stock markets from around the world. Learn how investing works with a virtual money simulator. Practice, research, and build your knowledge without risking real money.</p>
+<button onclick="document.getElementById('markets').scrollIntoView({behavior:'smooth'})">Explore Markets</button>
+</div>
 
-<section class="hero">
-<h1>Explore the <span class="green">World's Markets</span></h1>
-<p>Learn about companies, explore global stocks and practise investing with virtual money.</p>
-<p><span class="badge">Educational platform · Virtual trading</span></p>
-</section>
-
-<section id="demo" class="card">
-<h2>🎮 Demo Account</h2>
-<p class="small">Virtual money only. No real deposits or withdrawals.</p>
-<div class="grid">
-<div class="card">
-<p class="small">Available virtual cash</p>
-<div class="price green" id="cash">R100,000.00</div>
+<div class="stats">
+<div class="card"><h3>Virtual Cash</h3><div class="big" id="cash">R100,000.00</div></div>
+<div class="card"><h3>Portfolio Value</h3><div class="big" id="portfolioValue">R0.00</div></div>
+<div class="card"><h3>Total Account</h3><div class="big" id="totalValue">R100,000.00</div></div>
+<div class="card"><h3>Demo Profit / Loss</h3><div class="big" id="profit">R0.00</div></div>
 </div>
-<div class="card">
-<p class="small">Portfolio value</p>
-<div class="price" id="portfolio">R100,000.00</div>
-</div>
-<div class="card">
-<p class="small">Virtual profit / loss</p>
-<div class="price" id="profit">R0.00</div>
-</div>
-</div>
-<button onclick="resetAccount()">Reset Demo Account</button>
-</section>
 
 <section id="markets">
-<h2>🌍 Global Markets</h2>
-<p class="small">Sample prices are shown until you connect live market data.</p>
-<div class="card">
-<label>Search companies</label>
-<input id="search" placeholder="Search Apple, Tesla, Naspers..." oninput="renderStocks()">
-<label>Market</label>
-<select id="market" onchange="renderStocks()">
-<option value="All">All Markets</option>
-<option value="USA">United States</option>
-<option value="South Africa">South Africa</option>
-<option value="UK">United Kingdom</option>
-<option value="Japan">Japan</option>
-<option value="Europe">Europe</option>
+<h2>🌍 Global Market Explorer</h2>
+<p>Search companies or filter by country. This directory contains sample listings from major markets.</p>
+<div class="controls">
+<input id="search" placeholder="Search company, ticker or country..." oninput="renderMarkets()">
+<select id="country" onchange="renderMarkets()">
+<option value="all">All countries</option>
+<option>United States</option>
+<option>South Africa</option>
+<option>United Kingdom</option>
+<option>Japan</option>
+<option>Canada</option>
+<option>Australia</option>
+<option>Germany</option>
+<option>France</option>
+<option>India</option>
+<option>Hong Kong</option>
+<option>China</option>
+<option>Brazil</option>
+<option>Singapore</option>
+<option>Netherlands</option>
+<option>Switzerland</option>
+<option>South Korea</option>
+<option>Mexico</option>
+</select>
+<select id="exchange" onchange="renderMarkets()">
+<option value="all">All exchanges</option>
 </select>
 </div>
-<div id="stocks" class="grid"></div>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Company</th><th>Ticker</th><th>Country</th><th>Exchange</th><th>Sample Price</th><th>Actions</th></tr></thead>
+<tbody id="marketRows"></tbody>
+</table>
+</div>
+</section>
+
+<section id="demo">
+<h2>💰 Virtual Trading Simulator</h2>
+<div class="notice">This is a practice account. The prices are fictional reference values, and trades use virtual funds only. This is not connected to a real broker.</div>
+<div class="controls">
+<button class="secondary" onclick="resetDemo()">Reset Demo Account</button>
+</div>
+<h3>Your Holdings</h3>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Company</th><th>Ticker</th><th>Shares</th><th>Sample Price</th><th>Holding Value</th><th>Actions</th></tr></thead>
+<tbody id="holdingRows"></tbody>
+</table>
+</div>
 </section>
 
 <section id="watchlist">
 <h2>⭐ My Watchlist</h2>
-<div class="card" id="watchlistItems">No companies saved yet.</div>
-</section>
-
-<section class="card">
-<h2>📡 Connect Live Market Data</h2>
-<p class="small">You can connect a Finnhub API token to request real market quotes. Quotes may be delayed or limited by the provider. Never put private API keys into public code.</p>
-<input id="apiKey" placeholder="Paste your market-data API token">
-<button onclick="loadLivePrices()">Load Live Prices</button>
-<p id="apiStatus" class="small">Using sample prices.</p>
+<p>Keep track of companies you want to study.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Company</th><th>Ticker</th><th>Country</th><th>Sample Price</th><th>Actions</th></tr></thead>
+<tbody id="watchRows"></tbody>
+</table>
+</div>
 </section>
 
 <section id="learn">
-<h2>🧠 Investing Academy</h2>
-<div class="grid">
-<div class="card"><h3>📊 Stocks</h3><p>Learn what owning a share in a company means.</p></div>
-<div class="card"><h3>🌐 ETFs</h3><p>Understand funds that hold many investments.</p></div>
-<div class="card"><h3>📈 Compound Growth</h3><p>Explore how growth can build over time.</p></div>
-<div class="card"><h3>⚠️ Risk</h3><p>Investments can lose value. Returns are never guaranteed.</p></div>
+<h2>🎓 Learn Investing</h2>
+<div class="market-grid">
+<div class="market-card"><h3>📊 What is a stock?</h3><p>A stock represents a small ownership share in a company. Its price may rise or fall over time.</p></div>
+<div class="market-card"><h3>🌍 Diversification</h3><p>Learning about different industries and markets can help you understand why people avoid relying on a single company.</p></div>
+<div class="market-card"><h3>⚠️ Risk</h3><p>Investments can lose value. Past performance does not guarantee future results.</p></div>
+<div class="market-card"><h3>⏳ Long-term thinking</h3><p>Investing is often studied over long periods rather than focusing only on short-term changes.</p></div>
 </div>
 </section>
+</main>
 
-<section class="card">
-<h2>📚 Important</h2>
-<p>InvestWise is for education and virtual trading. Sample prices are fictional and live quotes are informational only. This website is not a broker and does not accept real money or execute real trades.</p>
-</section>
-
-</div>
-<footer>InvestWise · Learn first. Practise safely.</footer>
+<footer>
+<p>InvestWise — Educational market explorer and virtual trading simulator.</<p>
+<p>Sample market data only. Not financial advice. No real trades or money involved.</p>
+</footer>
+<div id="toast"></div>
 
 <script>
 const stocks=[
-{name:"Apple",symbol:"AAPL",market:"USA",currency:"USD",price:210},
-{name:"Microsoft",symbol:"MSFT",market:"USA",currency:"USD",price:420},
-{name:"NVIDIA",symbol:"NVDA",market:"USA",currency:"USD",price:145},
-{name:"Tesla",symbol:"TSLA",market:"USA",currency:"USD",price:330},
-{name:"Amazon",symbol:"AMZN",market:"USA",currency:"USD",price:220},
-{name:"Alphabet",symbol:"GOOGL",market:"USA",currency:"USD",price:175},
-{name:"Meta",symbol:"META",market:"USA",currency:"USD",price:650},
-{name:"Coca-Cola",symbol:"KO",market:"USA",currency:"USD",price:70},
-{name:"Naspers",symbol:"NPN.JO",market:"South Africa",currency:"ZAR",price:3800},
-{name:"Sasol",symbol:"SOL.JO",market:"South Africa",currency:"ZAR",price:125},
-{name:"Capitec",symbol:"CPI.JO",market:"South Africa",currency:"ZAR",price:3000},
-{name:"Shoprite",symbol:"SHP.JO",market:"South Africa",currency:"ZAR",price:290},
-{name:"Vodacom",symbol:"VOD.JO",market:"South Africa",currency:"ZAR",price:140},
-{name:"Anglo American",symbol:"AAL.L",market:"UK",currency:"GBP",price:2500},
-{name:"HSBC",symbol:"HSBA.L",market:"UK",currency:"GBP",price:800},
-{name:"Toyota",symbol:"7203.T",market:"Japan",currency:"JPY",price:2700},
-{name:"Sony",symbol:"6758.T",market:"Japan",currency:"JPY",price:3200},
-{name:"Nintendo",symbol:"7974.T",market:"Japan",currency:"JPY",price:9000},
-{name:"ASML",symbol:"ASML.AS",market:"Europe",currency:"EUR",price:700},
-{name:"LVMH",symbol:"MC.PA",market:"Europe",currency:"EUR",price:550}
+{name:"Apple",ticker:"AAPL",country:"United States",exchange:"NASDAQ",price:3200},
+{name:"Microsoft",ticker:"MSFT",country:"United States",exchange:"NASDAQ",price:7100},
+{name:"NVIDIA",ticker:"NVDA",country:"United States",exchange:"NASDAQ",price:4500},
+{name:"Amazon",ticker:"AMZN",country:"United States",exchange:"NASDAQ",price:3300},
+{name:"Alphabet",ticker:"GOOGL",country:"United States",exchange:"NASDAQ",price:2800},
+{name:"Tesla",ticker:"TSLA",country:"United States",exchange:"NASDAQ",price:2500},
+{name:"Coca-Cola",ticker:"KO",country:"United States",exchange:"NYSE",price:1100},
+{name:"Walmart",ticker:"WMT",country:"United States",exchange:"NYSE",price:2200},
+{name:"Berkshire Hathaway",ticker:"BRK.B",country:"United States",exchange:"NYSE",price:6500},
+{name:"JPMorgan Chase",ticker:"JPM",country:"United States",exchange:"NYSE",price:3100},
+
+{name:"Naspers",ticker:"NPN.JO",country:"South Africa",exchange:"JSE",price:3800},
+{name:"Prosus",ticker:"PRX.JO",country:"South Africa",exchange:"JSE",price:1200},
+{name:"Sasol",ticker:"SOL.JO",country:"South Africa",exchange:"JSE",price:950},
+{name:"Shoprite",ticker:"SHP.JO",country:"South Africa",exchange:"JSE",price:2800},
+{name:"Vodacom",ticker:"VOD.JO",country:"South Africa",exchange:"JSE",price:900},
+{name:"FirstRand",ticker:"FSR.JO",country:"South Africa",exchange:"JSE",price:700},
+{name:"Capitec",ticker:"CPI.JO",country:"South Africa",exchange:"JSE",price:2200},
+
+{name:"HSBC",ticker:"HSBA.L",country:"United Kingdom",exchange:"LSE",price:1200},
+{name:"Shell",ticker:"SHEL.L",country:"United Kingdom",exchange:"LSE",price:2800},
+{name:"AstraZeneca",ticker:"AZN.L",country:"United Kingdom",exchange:"LSE",price:2400},
+
+{name:"Toyota",ticker:"7203.T",country:"Japan",exchange:"Tokyo",price:1800},
+{name:"Sony",ticker:"6758.T",country:"Japan",exchange:"Tokyo",price:2100},
+{name:"Nintendo",ticker:"7974.T",country:"Japan",exchange:"Tokyo",price:2700},
+
+{name:"Shopify",ticker:"SHOP",country:"Canada",exchange:"TSX",price:1800},
+{name:"Royal Bank of Canada",ticker:"RY",country:"Canada",exchange:"TSX",price:2400},
+{name:"Toronto-Dominion Bank",ticker:"TD",country:"Canada",exchange:"TSX",price:1900},
+
+{name:"BHP",ticker:"BHP",country:"Australia",exchange:"ASX",price:2000},
+{name:"Commonwealth Bank",ticker:"CBA",country:"Australia",exchange:"ASX",price:2600},
+
+{name:"SAP",ticker:"SAP",country:"Germany",exchange:"XETRA",price:3100},
+{name:"Siemens",ticker:"SIE",country:"Germany",exchange:"XETRA",price:2300},
+
+{name:"LVMH",ticker:"MC",country:"France",exchange:"Euronext Paris",price:5200},
+{name:"Airbus",ticker:"AIR",country:"France",exchange:"Euronext Paris",price:2900},
+
+{name:"Reliance Industries",ticker:"RELIANCE",country:"India",exchange:"NSE",price:1500},
+{name:"Tata Consultancy Services",ticker:"TCS",country:"India",exchange:"NSE",price:2200},
+{name:"Infosys",ticker:"INFY",country:"India",exchange:"NSE",price:1300},
+
+{name:"Tencent",ticker:"0700",country:"Hong Kong",exchange:"HKEX",price:4800},
+{name:"Alibaba",ticker:"9988",country:"Hong Kong",exchange:"HKEX",price:1900},
+
+{name:"ICBC",ticker:"601398",country:"China",exchange:"Shanghai",price:800},
+{name:"BYD",ticker:"002594",country:"China",exchange:"Shenzhen",price:2500},
+
+{name:"Petrobras",ticker:"PETR4",country:"Brazil",exchange:"B3",price:1200},
+{name:"Vale",ticker:"VALE3",country:"Brazil",exchange:"B3",price:1500},
+
+{name:"DBS Group",ticker:"D05",country:"Singapore",exchange:"SGX",price:2600},
+{name:"Singapore Airlines",ticker:"C6L",country:"Singapore",exchange:"SGX",price:700},
+
+{name:"ASML",ticker:"ASML",country:"Netherlands",exchange:"Euronext Amsterdam",price:6500},
+{name:"Nestle",ticker:"NESN",country:"Switzerland",exchange:"SIX",price:1800},
+
+{name:"Samsung Electronics",ticker:"005930",country:"South Korea",exchange:"KRX",price:1600},
+{name:"SK Hynix",ticker:"000660",country:"South Korea",exchange:"KRX",price:2400},
+
+{name:"America Movil",ticker:"AMX",country:"Mexico",exchange:"BMV",price:900}
 ];
 
-let cash=100000;
-let holdings={};
-let watchlist=[];
-let liveMode=false;
-
-function fmt(n,c="ZAR"){
- try{return new Intl.NumberFormat("en-ZA",{style:"currency",currency:c}).format(n)}
- catch{return n.toFixed(2)}
+const fmt=n=>"R"+Number(n).toLocaleString("en-ZA",{minimumFractionDigits:2,maximumFractionDigits:2});
+let state=JSON.parse(localStorage.getItem("investwise_demo")||"null")||{
+cash:100000,holdings:{},watchlist:[],cost:{}
+};
+function save(){localStorage.setItem("investwise_demo",JSON.stringify(state))}
+function toast(message){
+const t=document.getElementById("toast");
+t.textContent=message;t.style.display="block";
+clearTimeout(window.toastTimer);
+window.toastTimer=setTimeout(()=>t.style.display="none",2500);
 }
-function getPrice(s){return s.price}
-function totalInvested(){
- return Object.entries(holdings).reduce((sum,[sym,qty])=>{
- let s=stocks.find(x=>x.symbol===sym);
- return sum+(s?s.price*qty:0);
- },0)
+function getStock(ticker){return stocks.find(s=>s.ticker===ticker)}
+function renderMarkets(){
+const search=document.getElementById("search").value.toLowerCase();
+const country=document.getElementById("country").value;
+const exchange=document.getElementById("exchange").value;
+const filtered=stocks.filter(s=>
+(s.name.toLowerCase().includes(search)||s.ticker.toLowerCase().includes(search)||s.country.toLowerCase().includes(search))&&
+(country==="all"||s.country===country)&&
+(exchange==="all"||s.exchange===exchange)
+);
+document.getElementById("marketRows").innerHTML=filtered.map(s=>`
+<tr>
+<td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${s.exchange}</td><td>${fmt(s.price)}</td>
+<td class="actions">
+<button onclick="toggleWatch('${s.ticker}')" class="secondary">${state.watchlist.includes(s.ticker)?"★ Saved":"☆ Watch"}</button>
+<button onclick="buy('${s.ticker}')">Demo Buy</button>
+</td></tr>`).join("")||"<tr><td colspan='6'>No companies found.</td></tr>";
 }
-function renderStocks(){
- const q=document.getElementById("search").value.toLowerCase();
- const m=document.getElementById("market").value;
- const filtered=stocks.filter(s=>(s.name.toLowerCase().includes(q)||s.symbol.toLowerCase().includes(q))&&(m==="All"||s.market===m));
- document.getElementById("stocks").innerHTML=filtered.map(s=>`
- <div class="card">
- <div class="badge">${s.market}</div>
- <h3>${s.name}</h3>
- <p class="small">${s.symbol} · ${s.currency}</p>
- <div class="price">${fmt(s.price,s.currency)}</div>
- ${liveMode?"<p class='small green'>Live quote loaded</p>":"<p class='small'>Sample price</p>"}
- <button onclick="buy('${s.symbol}')">Demo Buy</button>
- <button onclick="toggleWatch('${s.symbol}')">☆ Watch</button>
- </div>`).join("");
- updateAccount();
+function renderExchangeOptions(){
+const exchanges=[...new Set(stocks.map(s=>s.exchange))].sort();
+const select=document.getElementById("exchange");
+exchanges.forEach(e=>{let o=document.createElement("option");o.value=e;o.textContent=e;select.appendChild(o)});
 }
-function buy(sym){
- const s=stocks.find(x=>x.symbol===sym);
- if(!s)return;
- const qty=Number(prompt("How many virtual shares of "+s.name+"?"));
- if(!Number.isFinite(qty)||qty<=0||qty>100000)return alert("Enter a valid quantity.");
- const cost=qty*s.price;
- if(cost>cash)return alert("Not enough virtual cash.");
- cash-=cost;
- holdings[sym]=(holdings[sym]||0)+qty;
- updateAccount();
- alert("Demo purchase completed.");
+function toggleWatch(ticker){
+if(state.watchlist.includes(ticker)){
+state.watchlist=state.watchlist.filter(t=>t!==ticker);toast(ticker+" removed from watchlist");
+}else{
+state.watchlist.push(ticker);toast(ticker+" added to watchlist ⭐");
 }
-function toggleWatch(sym){
- if(watchlist.includes(sym))watchlist=watchlist.filter(x=>x!==sym);
- else watchlist.push(sym);
- renderWatchlist();
+save();renderMarkets();renderWatch();
 }
-function renderWatchlist(){
- const el=document.getElementById("watchlistItems");
- if(!watchlist.length){el.innerHTML="No companies saved yet.";return}
- el.innerHTML=watchlist.map(sym=>{
- const s=stocks.find(x=>x.symbol===sym);
- return s?`<div class="stockrow"><b>${s.name} (${sym})</b><br>${fmt(s.price,s.currency)}</div>`:"";
- }).join("");
+function renderWatch(){
+const items=state.watchlist.map(t=>getStock(t)).filter(Boolean);
+document.getElementById("watchRows").innerHTML=items.map(s=>`
+<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${fmt(s.price)}</td>
+<td class="actions"><button onclick="buy('${s.ticker}')">Demo Buy</button><button class="secondary" onclick="toggleWatch('${s.ticker}')">Remove</button></td></tr>`).join("")||"<tr><td colspan='5'>Your watchlist is empty. Add companies from the market explorer.</td></tr>";
 }
-function updateAccount(){
- const value=totalInvested();
- const total=cash+value;
- document.getElementById("cash").textContent=fmt(cash);
- document.getElementById("portfolio").textContent=fmt(total);
- document.getElementById("profit").textContent=fmt(total-100000);
+function buy(ticker){
+const s=getStock(ticker);if(!s)return;
+const qty=parseInt(prompt("How many virtual shares of "+s.name+" would you like to buy?"),10);
+if(!qty||qty<1||!Number.isInteger(qty))return;
+const cost=qty*s.price;
+if(cost>state.cash){toast("Not enough virtual cash!");return}
+state.cash-=cost;
+state.holdings[ticker]=(state.holdings[ticker]||0)+qty;
+state.cost[ticker]=(state.cost[ticker]||0)+cost;
+save();renderAll();toast("Demo purchase completed!");
 }
-function resetAccount(){
- if(!confirm("Reset all virtual holdings and cash?"))return;
- cash=100000;holdings={};updateAccount();
+function sell(ticker){
+const qtyHeld=state.holdings[ticker]||0;
+if(qtyHeld<=0)return;
+const qty=parseInt(prompt("How many virtual shares would you like to sell? (You have "+qtyHeld+")"),10);
+if(!qty||qty<1||qty>qtyHeld||!Number.isInteger(qty)){if(qty)toast("Invalid amount");return}
+const s=getStock(ticker);
+state.cash+=qty*s.price;
+state.holdings[ticker]-=qty;
+if(state.holdings[ticker]===0)delete state.holdings[ticker];
+const oldQty=qtyHeld;
+const oldCost=state.cost[ticker]||0;
+state.cost[ticker]=oldCost*(qty/oldQty);
+save();renderAll();toast("Demo sale completed!");
 }
-async function loadLivePrices(){
- const key=document.getElementById("apiKey").value.trim();
- if(!key){document.getElementById("apiStatus").textContent="Enter your API token first.";return}
- document.getElementById("apiStatus").textContent="Loading quotes...";
- let loaded=0;
- for(const s of stocks){
-  try{
-   const url=`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(s.symbol)}&token=${encodeURIComponent(key)}`;
-   const r=await fetch(url);
-   const d=await r.json();
-   if(d&&d.c>0){s.price=d.c;loaded++}
-  }catch(e){}
- }
- liveMode=loaded>0;
- document.getElementById("apiStatus").textContent=loaded+" quotes loaded. Provider limits may apply.";
- renderStocks();
+function renderHoldings(){
+let total=0,invested=0;
+const rows=Object.entries(state.holdings).filter(([t,q])=>q>0).map(([ticker,qty])=>{
+const s=getStock(ticker);if(!s)return "";
+const value=s.price*qty;total+=value;
+invested+=state.cost[ticker]||0;
+return `<tr><td>${s.name}</td><td>${ticker}</td><td>${qty}</td><td>${fmt(s.price)}</td><td>${fmt(value)}</td><td class="actions"><button onclick="buy('${ticker}')">Buy</button><button class="danger" onclick="sell('${ticker}')">Sell</button></td></tr>`;
+}).join("");
+document.getElementById("holdingRows").innerHTML=rows||"<tr><td colspan='6'>No virtual shares yet. Try a demo purchase in the market explorer.</td></tr>";
+const profit=total-invested;
+document.getElementById("cash").textContent=fmt(state.cash);
+document.getElementById("portfolioValue").textContent=fmt(total);
+document.getElementById("totalValue").textContent=fmt(state.cash+total);
+const p=document.getElementById("profit");
+p.textContent=fmt(profit);p.className="big "+(profit>=0?"green":"red");
 }
-renderStocks();
-renderWatchlist();
+function resetDemo(){
+if(!confirm("Reset your demo account to R100,000 and remove all virtual holdings?"))return;
+state={cash:100000,holdings:{},watchlist:[],cost:{}};
+save();renderAll();toast("Demo account reset.");
+}
+function renderAll(){renderMarkets();renderWatch();renderHoldings()}
+renderExchangeOptions();renderAll();
 </script>
 </body>
 </html>
