@@ -1,206 +1,234 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InvestWise</title>
-
+<title>InvestWise | Global Investing</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#080d17;color:#f1f5f9;font-family:Arial,sans-serif}
-header{padding:20px;background:#101827;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:23px;font-weight:bold;color:#4ade80}
-nav a{color:white;text-decoration:none;margin:8px;font-size:14px}
-.container{max-width:1100px;margin:auto;padding:25px}
-.hero{padding:65px 10px;text-align:center}
-.hero h1{font-size:42px;margin-bottom:15px}
-.hero span{color:#4ade80}
-.hero p{color:#aab6c8;margin:15px auto;max-width:600px;line-height:1.7}
-button{background:#4ade80;border:0;padding:12px 18px;border-radius:9px;font-weight:bold;cursor:pointer;color:#07110a}
-section{margin:30px 0}
-h2{margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.card{background:#111c2c;padding:22px;border-radius:14px;border:1px solid #243247}
-.card h3{margin-bottom:10px;color:#4ade80}
-.card p{color:#b8c3d1;line-height:1.6}
-.stat{font-size:25px;color:#4ade80;margin-top:10px}
-input{width:100%;padding:12px;margin:8px 0;background:#0b1220;color:white;border:1px solid #334155;border-radius:8px}
-.result{background:#111c2c;padding:18px;border-radius:10px;margin-top:15px;line-height:1.7}
-footer{text-align:center;color:#94a3b8;padding:30px}
-.small{font-size:13px;color:#9aa8ba}
+*{box-sizing:border-box}
+body{margin:0;background:#08111e;color:#eef4ff;font-family:Arial,sans-serif}
+header{padding:20px;background:#101d2e;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:24px;font-weight:bold;color:#4ade80}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+.container{max-width:1100px;margin:auto;padding:20px}
+.hero{padding:30px 20px;background:linear-gradient(135deg,#12382d,#12243d);border-radius:18px}
+.hero h1{font-size:34px}
+.green{color:#4ade80}
+button{border:0;border-radius:10px;padding:12px;background:#4ade80;color:#07140c;font-weight:bold;cursor:pointer}
+input,select{padding:12px;border-radius:9px;border:1px solid #34465d;background:#101d2e;color:white;width:100%;margin:5px 0}
+.card{background:#111e2f;border:1px solid #25364c;border-radius:14px;padding:17px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.small{font-size:13px;color:#9fb0c5}
+.price{font-size:24px;font-weight:bold}
+.stockrow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse}
+td,th{padding:12px;border-bottom:1px solid #26364a;text-align:left}
+.badge{display:inline-block;background:#173c2d;color:#4ade80;padding:5px 9px;border-radius:20px;font-size:12px}
+footer{padding:30px;text-align:center;color:#8799ad}
 </style>
 </head>
-
 <body>
 
 <header>
 <div class="logo">📈 InvestWise</div>
 <nav>
-<a href="#home">Home</a>
+<a href="#markets">Markets</a>
+<a href="#demo">Demo Account</a>
+<a href="#watchlist">Watchlist</a>
 <a href="#learn">Learn</a>
-<a href="#calculator">Calculator</a>
-<a href="#practice">Practice</a>
 </nav>
 </header>
 
 <div class="container">
 
-<section class="hero" id="home">
-<h1>Learn to make <span>smarter money decisions.</span></h1>
-<p>Explore investing, understand the markets, and practise with virtual money. Start learning at your own pace.</p>
-<a href="#learn"><button>Start Learning</button></a>
+<section class="hero">
+<h1>Explore the <span class="green">World's Markets</span></h1>
+<p>Learn about companies, explore global stocks and practise investing with virtual money.</p>
+<p><span class="badge">Educational platform · Virtual trading</span></p>
 </section>
 
-<section class="grid">
+<section id="demo" class="card">
+<h2>🎮 Demo Account</h2>
+<p class="small">Virtual money only. No real deposits or withdrawals.</p>
+<div class="grid">
 <div class="card">
-<h3>💰 Virtual Balance</h3>
-<div class="stat" id="balance">R10,000</div>
-<p>Practice money only</p>
+<p class="small">Available virtual cash</p>
+<div class="price green" id="cash">R100,000.00</div>
 </div>
 <div class="card">
-<h3>📚 Learning</h3>
-<div class="stat">Beginner</div>
-<p>Build your financial knowledge</p>
+<p class="small">Portfolio value</p>
+<div class="price" id="portfolio">R100,000.00</div>
 </div>
 <div class="card">
-<h3>🎯 Goal</h3>
-<div class="stat">Learn</div>
-<p>Understand risk and growth</p>
+<p class="small">Virtual profit / loss</p>
+<div class="price" id="profit">R0.00</div>
 </div>
+</div>
+<button onclick="resetAccount()">Reset Demo Account</button>
+</section>
+
+<section id="markets">
+<h2>🌍 Global Markets</h2>
+<p class="small">Sample prices are shown until you connect live market data.</p>
+<div class="card">
+<label>Search companies</label>
+<input id="search" placeholder="Search Apple, Tesla, Naspers..." oninput="renderStocks()">
+<label>Market</label>
+<select id="market" onchange="renderStocks()">
+<option value="All">All Markets</option>
+<option value="USA">United States</option>
+<option value="South Africa">South Africa</option>
+<option value="UK">United Kingdom</option>
+<option value="Japan">Japan</option>
+<option value="Europe">Europe</option>
+</select>
+</div>
+<div id="stocks" class="grid"></div>
+</section>
+
+<section id="watchlist">
+<h2>⭐ My Watchlist</h2>
+<div class="card" id="watchlistItems">No companies saved yet.</div>
+</section>
+
+<section class="card">
+<h2>📡 Connect Live Market Data</h2>
+<p class="small">You can connect a Finnhub API token to request real market quotes. Quotes may be delayed or limited by the provider. Never put private API keys into public code.</p>
+<input id="apiKey" placeholder="Paste your market-data API token">
+<button onclick="loadLivePrices()">Load Live Prices</button>
+<p id="apiStatus" class="small">Using sample prices.</p>
 </section>
 
 <section id="learn">
-<h2>📚 Investing Basics</h2>
+<h2>🧠 Investing Academy</h2>
 <div class="grid">
-<div class="card">
-<h3>📊 Stocks</h3>
-<p>A stock represents a share of ownership in a company. Its value can rise or fall.</p>
-</div>
-<div class="card">
-<h3>🌍 ETFs</h3>
-<p>Funds that can hold a collection of investments, helping spread exposure across different assets.</p>
-</div>
-<div class="card">
-<h3>⏳ Compound Growth</h3>
-<p>Growth can build on previous growth over time. Compounding can work in either direction.</p>
-</div>
-<div class="card">
-<h3>⚠️ Risk</h3>
-<p>Investments can lose value. Understand the risks before making financial decisions.</p>
-</div>
-</section>
-
-<section id="calculator">
-<h2>🧮 Growth Calculator</h2>
-<div class="card">
-<label>Starting amount (R)</label>
-<input id="start" type="number" value="1000">
-<label>Monthly contribution (R)</label>
-<input id="monthly" type="number" value="100">
-<label>Estimated annual growth (%)</label>
-<input id="rate" type="number" value="8">
-<label>Years</label>
-<input id="years" type="number" value="10">
-<button onclick="calculate()">Calculate</button>
-<div class="result" id="result">Your results will appear here.</div>
-<p class="small">This is a mathematical illustration, not a prediction of actual investment returns.</p>
-</div>
-</section>
-
-<section id="practice">
-<h2>🎮 Virtual Investing Practice</h2>
-<p class="small">Try buying virtual assets. No real money is involved.</p>
-<div class="grid">
-<div class="card">
-<h3>☀️ Solar Future</h3>
-<p>Virtual price: R120</p>
-<button onclick="buy(120)">Practice Buy</button>
-</div>
-<div class="card">
-<h3>💻 Nova Tech</h3>
-<p>Virtual price: R85</p>
-<button onclick="buy(85)">Practice Buy</button>
-</div>
-<div class="card">
-<h3>🌱 Earth Foods</h3>
-<p>Virtual price: R50</p>
-<button onclick="buy(50)">Practice Buy</button>
-</div>
-</div>
-
-<div class="card" style="margin-top:20px">
-<h3>Your Practice Account</h3>
-<p>Available virtual balance:</p>
-<div class="stat" id="practiceBalance">R10,000</div>
-<p id="purchaseCount">Practice purchases: 0</p>
-<p id="message"></p>
-<button onclick="resetPractice()">Reset Practice</button>
+<div class="card"><h3>📊 Stocks</h3><p>Learn what owning a share in a company means.</p></div>
+<div class="card"><h3>🌐 ETFs</h3><p>Understand funds that hold many investments.</p></div>
+<div class="card"><h3>📈 Compound Growth</h3><p>Explore how growth can build over time.</p></div>
+<div class="card"><h3>⚠️ Risk</h3><p>Investments can lose value. Returns are never guaranteed.</p></div>
 </div>
 </section>
 
 <section class="card">
-<h3>⚠️ Important</h3>
-<p>InvestWise is an educational project. This simulator uses imaginary money and does not provide financial advice or perform real transactions.</p>
+<h2>📚 Important</h2>
+<p>InvestWise is for education and virtual trading. Sample prices are fictional and live quotes are informational only. This website is not a broker and does not accept real money or execute real trades.</p>
 </section>
 
 </div>
-
-<footer>© 2026 InvestWise · Learn. Practice. Understand.</footer>
+<footer>InvestWise · Learn first. Practise safely.</footer>
 
 <script>
-let balance = 10000;
-let purchases = 0;
+const stocks=[
+{name:"Apple",symbol:"AAPL",market:"USA",currency:"USD",price:210},
+{name:"Microsoft",symbol:"MSFT",market:"USA",currency:"USD",price:420},
+{name:"NVIDIA",symbol:"NVDA",market:"USA",currency:"USD",price:145},
+{name:"Tesla",symbol:"TSLA",market:"USA",currency:"USD",price:330},
+{name:"Amazon",symbol:"AMZN",market:"USA",currency:"USD",price:220},
+{name:"Alphabet",symbol:"GOOGL",market:"USA",currency:"USD",price:175},
+{name:"Meta",symbol:"META",market:"USA",currency:"USD",price:650},
+{name:"Coca-Cola",symbol:"KO",market:"USA",currency:"USD",price:70},
+{name:"Naspers",symbol:"NPN.JO",market:"South Africa",currency:"ZAR",price:3800},
+{name:"Sasol",symbol:"SOL.JO",market:"South Africa",currency:"ZAR",price:125},
+{name:"Capitec",symbol:"CPI.JO",market:"South Africa",currency:"ZAR",price:3000},
+{name:"Shoprite",symbol:"SHP.JO",market:"South Africa",currency:"ZAR",price:290},
+{name:"Vodacom",symbol:"VOD.JO",market:"South Africa",currency:"ZAR",price:140},
+{name:"Anglo American",symbol:"AAL.L",market:"UK",currency:"GBP",price:2500},
+{name:"HSBC",symbol:"HSBA.L",market:"UK",currency:"GBP",price:800},
+{name:"Toyota",symbol:"7203.T",market:"Japan",currency:"JPY",price:2700},
+{name:"Sony",symbol:"6758.T",market:"Japan",currency:"JPY",price:3200},
+{name:"Nintendo",symbol:"7974.T",market:"Japan",currency:"JPY",price:9000},
+{name:"ASML",symbol:"ASML.AS",market:"Europe",currency:"EUR",price:700},
+{name:"LVMH",symbol:"MC.PA",market:"Europe",currency:"EUR",price:550}
+];
 
-function money(n){
- return "R" + n.toLocaleString("en-ZA",{maximumFractionDigits:2});
+let cash=100000;
+let holdings={};
+let watchlist=[];
+let liveMode=false;
+
+function fmt(n,c="ZAR"){
+ try{return new Intl.NumberFormat("en-ZA",{style:"currency",currency:c}).format(n)}
+ catch{return n.toFixed(2)}
 }
-
-function buy(price){
- if(balance < price){
-  document.getElementById("message").textContent="Not enough virtual money!";
-  return;
+function getPrice(s){return s.price}
+function totalInvested(){
+ return Object.entries(holdings).reduce((sum,[sym,qty])=>{
+ let s=stocks.find(x=>x.symbol===sym);
+ return sum+(s?s.price*qty:0);
+ },0)
+}
+function renderStocks(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const m=document.getElementById("market").value;
+ const filtered=stocks.filter(s=>(s.name.toLowerCase().includes(q)||s.symbol.toLowerCase().includes(q))&&(m==="All"||s.market===m));
+ document.getElementById("stocks").innerHTML=filtered.map(s=>`
+ <div class="card">
+ <div class="badge">${s.market}</div>
+ <h3>${s.name}</h3>
+ <p class="small">${s.symbol} · ${s.currency}</p>
+ <div class="price">${fmt(s.price,s.currency)}</div>
+ ${liveMode?"<p class='small green'>Live quote loaded</p>":"<p class='small'>Sample price</p>"}
+ <button onclick="buy('${s.symbol}')">Demo Buy</button>
+ <button onclick="toggleWatch('${s.symbol}')">☆ Watch</button>
+ </div>`).join("");
+ updateAccount();
+}
+function buy(sym){
+ const s=stocks.find(x=>x.symbol===sym);
+ if(!s)return;
+ const qty=Number(prompt("How many virtual shares of "+s.name+"?"));
+ if(!Number.isFinite(qty)||qty<=0||qty>100000)return alert("Enter a valid quantity.");
+ const cost=qty*s.price;
+ if(cost>cash)return alert("Not enough virtual cash.");
+ cash-=cost;
+ holdings[sym]=(holdings[sym]||0)+qty;
+ updateAccount();
+ alert("Demo purchase completed.");
+}
+function toggleWatch(sym){
+ if(watchlist.includes(sym))watchlist=watchlist.filter(x=>x!==sym);
+ else watchlist.push(sym);
+ renderWatchlist();
+}
+function renderWatchlist(){
+ const el=document.getElementById("watchlistItems");
+ if(!watchlist.length){el.innerHTML="No companies saved yet.";return}
+ el.innerHTML=watchlist.map(sym=>{
+ const s=stocks.find(x=>x.symbol===sym);
+ return s?`<div class="stockrow"><b>${s.name} (${sym})</b><br>${fmt(s.price,s.currency)}</div>`:"";
+ }).join("");
+}
+function updateAccount(){
+ const value=totalInvested();
+ const total=cash+value;
+ document.getElementById("cash").textContent=fmt(cash);
+ document.getElementById("portfolio").textContent=fmt(total);
+ document.getElementById("profit").textContent=fmt(total-100000);
+}
+function resetAccount(){
+ if(!confirm("Reset all virtual holdings and cash?"))return;
+ cash=100000;holdings={};updateAccount();
+}
+async function loadLivePrices(){
+ const key=document.getElementById("apiKey").value.trim();
+ if(!key){document.getElementById("apiStatus").textContent="Enter your API token first.";return}
+ document.getElementById("apiStatus").textContent="Loading quotes...";
+ let loaded=0;
+ for(const s of stocks){
+  try{
+   const url=`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(s.symbol)}&token=${encodeURIComponent(key)}`;
+   const r=await fetch(url);
+   const d=await r.json();
+   if(d&&d.c>0){s.price=d.c;loaded++}
+  }catch(e){}
  }
- balance-=price;
- purchases++;
- document.getElementById("practiceBalance").textContent=money(balance);
- document.getElementById("purchaseCount").textContent="Practice purchases: "+purchases;
- document.getElementById("message").textContent="Virtual purchase completed!";
+ liveMode=loaded>0;
+ document.getElementById("apiStatus").textContent=loaded+" quotes loaded. Provider limits may apply.";
+ renderStocks();
 }
-
-function resetPractice(){
- balance=10000;
- purchases=0;
- document.getElementById("practiceBalance").textContent=money(balance);
- document.getElementById("purchaseCount").textContent="Practice purchases: 0";
- document.getElementById("message").textContent="Practice account reset.";
-}
-
-function calculate(){
- let start=Number(document.getElementById("start").value);
- let monthly=Number(document.getElementById("monthly").value);
- let rate=Number(document.getElementById("rate").value)/100/12;
- let years=Number(document.getElementById("years").value);
-
- if(start<0||monthly<0||years<=0){
-  document.getElementById("result").textContent="Please enter valid positive values.";
-  return;
- }
-
- let total=start;
- for(let i=0;i<years*12;i++){
-  total=total*(1+rate)+monthly;
- }
-
- let contributed=start+(monthly*years*12);
- let growth=total-contributed;
-
- document.getElementById("result").innerHTML=
- "Estimated future value: <strong>"+money(total)+"</strong><br>"+
- "Total contributions: "+money(contributed)+"<br>"+
- "Illustrative growth: "+money(growth);
-}
+renderStocks();
+renderWatchlist();
 </script>
-
 </body>
 </html>
