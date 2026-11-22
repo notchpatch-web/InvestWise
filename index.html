@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InvestWise</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080d17;color:#f1f5f9;font-family:Arial,sans-serif}
+header{padding:20px;background:#101827;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:bold;color:#4ade80}
+nav a{color:white;text-decoration:none;margin:8px;font-size:14px}
+.container{max-width:1100px;margin:auto;padding:25px}
+.hero{padding:65px 10px;text-align:center}
+.hero h1{font-size:42px;margin-bottom:15px}
+.hero span{color:#4ade80}
+.hero p{color:#aab6c8;margin:15px auto;max-width:600px;line-height:1.7}
+button{background:#4ade80;border:0;padding:12px 18px;border-radius:9px;font-weight:bold;cursor:pointer;color:#07110a}
+section{margin:30px 0}
+h2{margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:#111c2c;padding:22px;border-radius:14px;border:1px solid #243247}
+.card h3{margin-bottom:10px;color:#4ade80}
+.card p{color:#b8c3d1;line-height:1.6}
+.stat{font-size:25px;color:#4ade80;margin-top:10px}
+input{width:100%;padding:12px;margin:8px 0;background:#0b1220;color:white;border:1px solid #334155;border-radius:8px}
+.result{background:#111c2c;padding:18px;border-radius:10px;margin-top:15px;line-height:1.7}
+footer{text-align:center;color:#94a3b8;padding:30px}
+.small{font-size:13px;color:#9aa8ba}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">📈 InvestWise</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#learn">Learn</a>
+<a href="#calculator">Calculator</a>
+<a href="#practice">Practice</a>
+</nav>
+</header>
+
+<div class="container">
+
+<section class="hero" id="home">
+<h1>Learn to make <span>smarter money decisions.</span></h1>
+<p>Explore investing, understand the markets, and practise with virtual money. Start learning at your own pace.</p>
+<a href="#learn"><button>Start Learning</button></a>
+</section>
+
+<section class="grid">
+<div class="card">
+<h3>💰 Virtual Balance</h3>
+<div class="stat" id="balance">R10,000</div>
+<p>Practice money only</p>
+</div>
+<div class="card">
+<h3>📚 Learning</h3>
+<div class="stat">Beginner</div>
+<p>Build your financial knowledge</p>
+</div>
+<div class="card">
+<h3>🎯 Goal</h3>
+<div class="stat">Learn</div>
+<p>Understand risk and growth</p>
+</div>
+</section>
+
+<section id="learn">
+<h2>📚 Investing Basics</h2>
+<div class="grid">
+<div class="card">
+<h3>📊 Stocks</h3>
+<p>A stock represents a share of ownership in a company. Its value can rise or fall.</p>
+</div>
+<div class="card">
+<h3>🌍 ETFs</h3>
+<p>Funds that can hold a collection of investments, helping spread exposure across different assets.</p>
+</div>
+<div class="card">
+<h3>⏳ Compound Growth</h3>
+<p>Growth can build on previous growth over time. Compounding can work in either direction.</p>
+</div>
+<div class="card">
+<h3>⚠️ Risk</h3>
+<p>Investments can lose value. Understand the risks before making financial decisions.</p>
+</div>
+</section>
+
+<section id="calculator">
+<h2>🧮 Growth Calculator</h2>
+<div class="card">
+<label>Starting amount (R)</label>
+<input id="start" type="number" value="1000">
+<label>Monthly contribution (R)</label>
+<input id="monthly" type="number" value="100">
+<label>Estimated annual growth (%)</label>
+<input id="rate" type="number" value="8">
+<label>Years</label>
+<input id="years" type="number" value="10">
+<button onclick="calculate()">Calculate</button>
+<div class="result" id="result">Your results will appear here.</div>
+<p class="small">This is a mathematical illustration, not a prediction of actual investment returns.</p>
+</div>
+</section>
+
+<section id="practice">
+<h2>🎮 Virtual Investing Practice</h2>
+<p class="small">Try buying virtual assets. No real money is involved.</p>
+<div class="grid">
+<div class="card">
+<h3>☀️ Solar Future</h3>
+<p>Virtual price: R120</p>
+<button onclick="buy(120)">Practice Buy</button>
+</div>
+<div class="card">
+<h3>💻 Nova Tech</h3>
+<p>Virtual price: R85</p>
+<button onclick="buy(85)">Practice Buy</button>
+</div>
+<div class="card">
+<h3>🌱 Earth Foods</h3>
+<p>Virtual price: R50</p>
+<button onclick="buy(50)">Practice Buy</button>
+</div>
+</div>
+
+<div class="card" style="margin-top:20px">
+<h3>Your Practice Account</h3>
+<p>Available virtual balance:</p>
+<div class="stat" id="practiceBalance">R10,000</div>
+<p id="purchaseCount">Practice purchases: 0</p>
+<p id="message"></p>
+<button onclick="resetPractice()">Reset Practice</button>
+</div>
+</section>
+
+<section class="card">
+<h3>⚠️ Important</h3>
+<p>InvestWise is an educational project. This simulator uses imaginary money and does not provide financial advice or perform real transactions.</p>
+</section>
+
+</div>
+
+<footer>© 2026 InvestWise · Learn. Practice. Understand.</footer>
+
+<script>
+let balance = 10000;
+let purchases = 0;
+
+function money(n){
+ return "R" + n.toLocaleString("en-ZA",{maximumFractionDigits:2});
+}
+
+function buy(price){
+ if(balance < price){
+  document.getElementById("message").textContent="Not enough virtual money!";
+  return;
+ }
+ balance-=price;
+ purchases++;
+ document.getElementById("practiceBalance").textContent=money(balance);
+ document.getElementById("purchaseCount").textContent="Practice purchases: "+purchases;
+ document.getElementById("message").textContent="Virtual purchase completed!";
+}
+
+function resetPractice(){
+ balance=10000;
+ purchases=0;
+ document.getElementById("practiceBalance").textContent=money(balance);
+ document.getElementById("purchaseCount").textContent="Practice purchases: 0";
+ document.getElementById("message").textContent="Practice account reset.";
+}
+
+function calculate(){
+ let start=Number(document.getElementById("start").value);
+ let monthly=Number(document.getElementById("monthly").value);
+ let rate=Number(document.getElementById("rate").value)/100/12;
+ let years=Number(document.getElementById("years").value);
+
+ if(start<0||monthly<0||years<=0){
+  document.getElementById("result").textContent="Please enter valid positive values.";
+  return;
+ }
+
+ let total=start;
+ for(let i=0;i<years*12;i++){
+  total=total*(1+rate)+monthly;
+ }
+
+ let contributed=start+(monthly*years*12);
+ let growth=total-contributed;
+
+ document.getElementById("result").innerHTML=
+ "Estimated future value: <strong>"+money(total)+"</strong><br>"+
+ "Total contributions: "+money(contributed)+"<br>"+
+ "Illustrative growth: "+money(growth);
+}
+</script>
+
+</body>
+</html>
