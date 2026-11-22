@@ -3,53 +3,47 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InvestWise AI</title>
 <style>
-:root{--bg:#08111f;--panel:#101f33;--panel2:#172a42;--border:#29415d;--text:#edf4ff;--muted:#9eb3cb;--green:#4be0a1;--red:#ff737d;--blue:#6ea9ff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;background:#091829;border-bottom:1px solid var(--border);padding:14px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:bold;color:var(--green)}
-nav{display:flex;gap:7px;flex-wrap:wrap}
-nav a{color:#d9e8f8;text-decoration:none;padding:8px;border-radius:8px}
-nav a:hover{background:var(--panel2)}
-main{max-width:1400px;margin:auto;padding:22px 3%}
-.hero{padding:30px;border-radius:18px;background:linear-gradient(120deg,#13385b,#142a43,#174637);margin-bottom:20px}
-.hero h1{font-size:32px;margin:0 0 12px}
-.hero p{line-height:1.6;color:#c5d9ee}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:13px}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:17px}
-.card h3{font-size:14px;color:var(--muted);margin:0 0 12px}
-.value{font-size:25px;font-weight:bold;overflow-wrap:anywhere}
-section{margin:32px 0}
+body{margin:0;background:#07111e;color:#eef5ff;font-family:Arial,sans-serif}
+header{background:#0d1c2e;padding:16px 20px;border-bottom:1px solid #263c55;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:24px;font-weight:bold;color:#4be0a1}
+nav{display:flex;flex-wrap:wrap;gap:10px}
+nav a{color:white;text-decoration:none;padding:9px;border-radius:8px}
+nav a:hover{background:#203650}
+main{max-width:1300px;margin:auto;padding:20px}
+.hero{padding:25px;border-radius:15px;background:linear-gradient(130deg,#10385a,#123c32);margin-bottom:20px}
+.hero h1{font-size:32px}
+button{border:none;border-radius:8px;padding:10px 14px;background:#4be0a1;color:#062117;font-weight:bold;cursor:pointer}
+button:hover{opacity:.85}
+.secondary{background:#294966;color:white}
+.danger{background:#f06d7b;color:white}
+.card{background:#102137;border:1px solid #263e59;padding:16px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.stat{font-size:24px;font-weight:bold;margin-top:10px}
+section{margin:30px 0}
 h2{font-size:23px}
-.controls{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
-input,select{background:#0b192b;color:white;border:1px solid var(--border);border-radius:8px;padding:11px}
-input{min-width:160px;flex:1}
-button{background:var(--green);color:#062019;border:0;padding:10px 13px;border-radius:8px;font-weight:bold;cursor:pointer}
-button:hover{filter:brightness(1.08)}
-.secondary{background:#284968;color:white}
-.redbtn{background:#e8757e;color:#250b0e}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+input,select{padding:11px;background:#091729;color:white;border:1px solid #2a435f;border-radius:8px;min-width:140px}
+input{flex:1}
 .tablewrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:750px;background:var(--panel)}
-th,td{text-align:left;padding:12px;border-bottom:1px solid var(--border)}
-th{background:var(--panel2);color:#bad1e9}
-.green{color:var(--green)}
-.red{color:var(--red)}
-.notice{padding:13px;background:#342a1b;color:#f2d7a4;border:1px solid #80653b;border-radius:10px;line-height:1.5}
-.info{padding:13px;background:#142e45;border-radius:10px;color:#c0d7ee;line-height:1.5}
+table{width:100%;border-collapse:collapse;min-width:700px;background:#102137}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #263e59}
+th{background:#172b43}
+.green{color:#4be0a1}
+.red{color:#ff7480}
 .movers{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-.mover{padding:14px;background:var(--panel);border:1px solid var(--border);border-radius:10px}
-.chartbox{background:var(--panel);padding:16px;border:1px solid var(--border);border-radius:14px}
-canvas{width:100%;height:230px;display:block}
-.chartbuttons{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.chartbuttons button{background:#284663;color:white}
-.newsgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.news{padding:16px;border:1px solid var(--border);background:var(--panel);border-radius:12px}
-footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--border);margin-top:40px}
-#toast{display:none;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:#062019;padding:13px 18px;border-radius:10px;font-weight:bold;z-index:10;max-width:90%;text-align:center}
-@media(max-width:600px){main{padding:13px}.hero{padding:20px}.hero h1{font-size:27px}.value{font-size:21px}}
+.mover{background:#102137;border:1px solid #263e59;padding:14px;border-radius:10px}
+.info{background:#142d45;padding:13px;border-radius:9px;color:#c4d9ed;line-height:1.6}
+.warning{background:#332a1b;color:#f2d6a1;border:1px solid #6b5534;padding:13px;border-radius:9px;line-height:1.5}
+canvas{width:100%;height:250px;background:#0b1829;border-radius:10px}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.ai-grid a{display:block;background:#142b42;border:1px solid #294560;padding:16px;border-radius:10px;color:white;text-decoration:none;text-align:center}
+.ai-grid a:hover{background:#1d3b57}
+footer{text-align:center;color:#94abc4;padding:25px;border-top:1px solid #263e59;margin-top:30px}
+@media(max-width:600px){main{padding:12px}.hero{padding:18px}.hero h1{font-size:25px}.stat{font-size:20px}}
 </style>
 </head>
 <body>
@@ -61,56 +55,56 @@ footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid va
 <a href="#markets">Markets</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#watchlist">Watchlist</a>
-<a href="#charts">Charts</a>
-<a href="#ai">AI</a>
+<a href="#chart">Charts</a>
+<a href="#learn">Learn</a>
+<a href="#ai">AI Hub</a>
 </nav>
 </header>
 
 <main>
+
 <div class="hero">
-<h1>Global Markets Learning Hub 🌍</h1>
-<p>Explore companies, learn how stock prices move, practise with virtual money, and discover financial concepts in a simulated environment.</p>
-<button onclick="jump('markets')">Explore Markets</button>
-<button class="secondary" onclick="jump('ai')">Ask InvestWise AI</button>
+<h1>Explore the world of markets 🌍</h1>
+<p>Learn about companies, practise with virtual money, explore markets, and understand investing.</p>
+<button onclick="goTo('markets')">Explore Markets</button>
+<button class="secondary" onclick="goTo('ai')">Explore AI</button>
 </div>
 
-<div class="notice">
-<strong>Demo mode:</strong> Prices, percentage changes, market movers, and charts are simulated examples. No live quotes or real trades. No deposits or real-money investing.
+<div class="warning">
+<strong>Learning mode:</strong> Prices are fictional simulated examples. This website does not display live market data or execute real trades.
 </div>
 
 <section id="dashboard">
 <h2>📊 Dashboard</h2>
 <div class="grid">
-<div class="card"><h3>Virtual Cash</h3><div class="value" id="cash">R100,000</div></div>
-<div class="card"><h3>Portfolio Value</h3><div class="value" id="holdValue">R0</div></div>
-<div class="card"><h3>Total Account</h3><div class="value" id="account">R100,000</div></div>
-<div class="card"><h3>Demo Profit/Loss</h3><div class="value" id="profit">R0</div></div>
-<div class="card"><h3>Learning XP</h3><div class="value" id="xp">0 XP</div></div>
-<div class="card"><h3>Level</h3><div class="value" id="level">Beginner</div></div>
+<div class="card"><h3>Virtual Cash</h3><div class="stat" id="cash">R100,000.00</div></div>
+<div class="card"><h3>Holdings Value</h3><div class="stat" id="holdingsValue">R0.00</div></div>
+<div class="card"><h3>Account Value</h3><div class="stat" id="accountValue">R100,000.00</div></div>
+<div class="card"><h3>Demo Profit / Loss</h3><div class="stat" id="profitLoss">R0.00</div></div>
+<div class="card"><h3>Learning XP</h3><div class="stat" id="xp">0 XP</div></div>
+<div class="card"><h3>Level</h3><div class="stat" id="level">Beginner</div></div>
 </div>
 </section>
 
 <section id="movers">
 <h2>🚀 Simulated Market Movers</h2>
-<p class="info">Use the simulation button to practise understanding price changes. This does not represent actual market activity.</p>
 <div class="controls">
-<button onclick="simulate()">Simulate Price Movement</button>
-<button class="secondary" onclick="resetPrices()">Reset Sample Prices</button>
+<button onclick="simulate()">Simulate Market</button>
+<button class="secondary" onclick="resetPrices()">Reset Prices</button>
 </div>
-<div class="movers" id="movers"></div>
+<div id="moverList" class="movers"></div>
 </section>
 
 <section id="markets">
-<h2>🌎 Market Explorer</h2>
+<h2>🌎 Markets</h2>
 <div class="controls">
-<input id="search" placeholder="Search company, ticker, country, exchange..." oninput="renderMarkets()">
-<select id="country" onchange="renderMarkets()"><option value="all">All countries</option></select>
-<select id="sector" onchange="renderMarkets()"><option value="all">All sectors</option></select>
-<select id="exchange" onchange="renderMarkets()"><option value="all">All exchanges</option></select>
+<input id="search" placeholder="Search company, ticker or country">
+<select id="countryFilter"><option value="">All countries</option></select>
+<select id="sectorFilter"><option value="">All sectors</option></select>
 </div>
 <div class="tablewrap">
 <table>
-<thead><tr><th>Company</th><th>Ticker</th><th>Country</th><th>Sector</th><th>Example Price</th><th>Change</th><th>Actions</th></tr></thead>
+<thead><tr><th>Company</th><th>Ticker</th><th>Country</th><th>Sector</th><th>Demo Price</th><th>Change</th><th>Actions</th></tr></thead>
 <tbody id="marketRows"></tbody>
 </table>
 </div>
@@ -118,16 +112,14 @@ footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid va
 
 <section id="portfolio">
 <h2>💼 Demo Portfolio</h2>
-<p class="info">Virtual money only. Practice buying and selling without depositing money.</p>
+<div class="info">This portfolio uses virtual money only. No real money is involved.</div>
 <div class="controls"><button class="secondary" onclick="resetAccount()">Reset Demo Account</button></div>
 <div class="tablewrap">
 <table>
-<thead><tr><th>Company</th><th>Ticker</th><th>Shares</th><th>Example Price</th><th>Value</th><th>Actions</th></tr></thead>
+<thead><tr><th>Company</th><th>Ticker</th><th>Shares</th><th>Price</th><th>Value</th><th>Actions</th></tr></thead>
 <tbody id="portfolioRows"></tbody>
 </table>
 </div>
-<h3>Portfolio Allocation</h3>
-<div class="grid" id="allocation"></div>
 </section>
 
 <section id="watchlist">
@@ -140,271 +132,315 @@ footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid va
 </div>
 </section>
 
-<section id="charts">
-<h2>📉 Sample Price Charts</h2>
+<section id="chart">
+<h2>📉 Sample Charts</h2>
 <div class="controls">
-<select id="chartTicker" onchange="drawChart()"></select>
+<select id="chartSelect"></select>
+<button class="secondary" onclick="drawChart()">Refresh Chart</button>
 </div>
-<div class="chartbox">
-<div class="chartbuttons">
-<button onclick="setDays(7)">7D</button>
-<button onclick="setDays(30)">30D</button>
-<button onclick="setDays(90)">90D</button>
-<button onclick="setDays(365)">1Y</button>
-</div>
-<canvas id="chart"></canvas>
-<p class="info" id="chartInfo">Simulated example chart, not actual price history.</p>
-</div>
-</section>
-
-<section id="alerts">
-<h2>🔔 Demo Price Alerts</h2>
-<div class="controls">
-<select id="alertTicker"></select>
-<input id="alertPrice" type="number" min="0.01" step="0.01" placeholder="Example price threshold">
-<button onclick="addAlert()">Create Alert</button>
-</div>
-<div class="grid" id="alertsList"></div>
-</section>
-
-<section id="ai">
-<h2>🤖 InvestWise AI Learning Assistant</h2>
 <div class="card">
-<p>Ask educational questions about stocks, market terms, risk, diversification, charts, and the simulator.</p>
-<div class="controls">
-<input id="question" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')askAI()">
-<button onclick="askAI()">Ask AI</button>
-</div>
-<div class="info" id="aiAnswer">I can explain investing concepts and how this simulator works. I don't predict stock prices or recommend investments.</div>
+<canvas id="canvas"></canvas>
+<p class="info" id="chartCaption">Simulated chart — not actual market history.</p>
 </div>
 </section>
 
 <section id="calculator">
-<h2>🧮 Growth Calculator</h2>
+<h2>🧮 Compound Growth Calculator</h2>
 <div class="card">
 <div class="controls">
-<input id="initial" type="number" min="0" placeholder="Starting amount">
-<input id="monthly" type="number" min="0" placeholder="Monthly contribution">
-<input id="years" type="number" min="1" max="100" placeholder="Years">
-<input id="rate" type="number" placeholder="Hypothetical yearly rate %">
-<button onclick="calculate()">Calculate</button>
+<input id="startAmount" type="number" min="0" placeholder="Starting amount (R)">
+<input id="monthlyAmount" type="number" min="0" placeholder="Monthly addition (R)">
+<input id="duration" type="number" min="1" max="100" placeholder="Years">
+<input id="annualRate" type="number" placeholder="Hypothetical annual %">
+<button onclick="calculateGrowth()">Calculate</button>
 </div>
-<div class="info" id="result">Illustrative calculation only. Growth is not guaranteed.</div>
+<div class="info" id="calcResult">This is an illustration, not a prediction or guarantee.</div>
 </div>
 </section>
 
 <section id="learn">
 <h2>🎓 Learning Center</h2>
-<div class="newsgrid">
-<div class="news"><h3>📊 Stocks</h3><p>A stock represents a share of ownership in a company. Its value may rise or fall.</p></div>
-<div class="news"><h3>🌍 Diversification</h3><p>Learn about spreading risk across companies, industries, and regions.</p></div>
-<div class="news"><h3>📉 Market risk</h3><p>Prices can fall, and returns are not guaranteed.</p></div>
-<div class="news"><h3>⏳ Compounding</h3><p>Growth may build on previous growth over time.</p></div>
-<div class="news"><h3>💸 Fees</h3><p>Fees and costs reduce the money that remains invested.</p></div>
-<div class="news"><h3>🔎 Research</h3><p>Study company information, products, financial results, and risks.</p></div>
+<div class="grid">
+<div class="card"><h3>📈 Stocks</h3><p>A share represents part ownership in a company.</p></div>
+<div class="card"><h3>🌍 Diversification</h3><p>Spreading risk between different investments and industries.</p></div>
+<div class="card"><h3>⚠️ Risk</h3><p>Prices may fall. Returns are not guaranteed.</p></div>
+<div class="card"><h3>⏳ Compounding</h3><p>Growth can build upon earlier growth over time.</p></div>
+<div class="card"><h3>🔎 Research</h3><p>Learn about a company's products, finances, and risks.</p></div>
+<div class="card"><h3>💸 Fees</h3><p>Costs can reduce the money that remains invested.</p></div>
 </div>
-<h3>Daily Challenge</h3>
+<h3>Quick Quiz</h3>
 <div class="card">
-<p id="challengeQuestion">What is diversification?</p>
-<button onclick="revealChallenge()">Reveal Answer</button>
-<button class="secondary" onclick="nextChallenge()">Next Challenge</button>
-<button onclick="addXP(10)">Earn 10 XP</button>
-<div class="info" id="challengeAnswer" style="display:none"></div>
+<p id="quizQuestion">What does diversification mean?</p>
+<button onclick="showQuizAnswer()">Show Answer</button>
+<button class="secondary" onclick="nextQuiz()">Next Question</button>
+<button onclick="earnXP()">Earn 10 XP</button>
+<div id="quizAnswer" class="info" style="display:none"></div>
 </div>
 </section>
+
+<section id="ai">
+<h2>🤖 AI Hub</h2>
+<div class="info">Choose an AI service to open it. These are external services; they are not directly connected to one another.</div>
+<div class="ai-grid">
+<a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">🤖 ChatGPT</a>
+<a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">✨ Google Gemini</a>
+<a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">🧠 Claude</a>
+<a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">💠 Microsoft Copilot</a>
+<a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">🔎 Perplexity</a>
+<a href="https://www.meta.ai/" target="_blank" rel="noopener noreferrer">🦙 Meta AI</a>
+<a href="https://grok.com/" target="_blank" rel="noopener noreferrer">🚀 Grok</a>
+<a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">🐋 DeepSeek</a>
+<a href="https://chat.mistral.ai/" target="_blank" rel="noopener noreferrer">🌬️ Mistral</a>
+<a href="https://huggingface.co/chat/" target="_blank" rel="noopener noreferrer">🤗 HuggingChat</a>
+</div>
+<h3>InvestWise Learning Assistant</h3>
+<div class="card">
+<div class="controls">
+<input id="aiQuestion" placeholder="Ask about stocks, risk, charts..." onkeydown="if(event.key==='Enter')askAssistant()">
+<button onclick="askAssistant()">Ask</button>
+</div>
+<div class="info" id="aiResponse">Ask me about basic financial concepts or how this simulator works.</div>
+</div>
+</section>
+
 </main>
 
 <footer>
-InvestWise AI • Learning simulator • Example data • No real trading
+InvestWise AI | Educational simulator | Simulated data only
 </footer>
-<div id="toast"></div>
 
 <script>
 "use strict";
 
-const stocks=[
-{name:"Apple",ticker:"AAPL",country:"United States",exchange:"NASDAQ",sector:"Technology",price:3200,prev:3120},
-{name:"Microsoft",ticker:"MSFT",country:"United States",exchange:"NASDAQ",sector:"Technology",price:7100,prev:7200},
-{name:"NVIDIA",ticker:"NVDA",country:"United States",exchange:"NASDAQ",sector:"Technology",price:4500,prev:4400},
-{name:"Amazon",ticker:"AMZN",country:"United States",exchange:"NASDAQ",sector:"Retail",price:3300,prev:3200},
-{name:"Alphabet",ticker:"GOOGL",country:"United States",exchange:"NASDAQ",sector:"Technology",price:2800,prev:2850},
-{name:"Tesla",ticker:"TSLA",country:"United States",exchange:"NASDAQ",sector:"Automotive",price:2500,prev:2600},
-{name:"Coca-Cola",ticker:"KO",country:"United States",exchange:"NYSE",sector:"Consumer",price:1100,prev:1080},
-{name:"Walmart",ticker:"WMT",country:"United States",exchange:"NYSE",sector:"Retail",price:2200,prev:2160},
-{name:"JPMorgan Chase",ticker:"JPM",country:"United States",exchange:"NYSE",sector:"Finance",price:3100,prev:3200},
-{name:"Naspers",ticker:"NPN.JO",country:"South Africa",exchange:"JSE",sector:"Technology",price:3800,prev:3700},
-{name:"Prosus",ticker:"PRX.JO",country:"South Africa",exchange:"JSE",sector:"Technology",price:1200,prev:1240},
-{name:"Sasol",ticker:"SOL.JO",country:"South Africa",exchange:"JSE",sector:"Energy",price:950,prev:920},
-{name:"Shoprite",ticker:"SHP.JO",country:"South Africa",exchange:"JSE",sector:"Retail",price:2800,prev:2750},
-{name:"Vodacom",ticker:"VOD.JO",country:"South Africa",exchange:"JSE",sector:"Telecom",price:900,prev:940},
-{name:"FirstRand",ticker:"FSR.JO",country:"South Africa",exchange:"JSE",sector:"Finance",price:700,prev:690},
-{name:"Capitec",ticker:"CPI.JO",country:"South Africa",exchange:"JSE",sector:"Finance",price:2200,prev:2150},
-{name:"HSBC",ticker:"HSBA.L",country:"United Kingdom",exchange:"LSE",sector:"Finance",price:1200,prev:1180},
-{name:"Shell",ticker:"SHEL.L",country:"United Kingdom",exchange:"LSE",sector:"Energy",price:2800,prev:2900},
-{name:"AstraZeneca",ticker:"AZN.L",country:"United Kingdom",exchange:"LSE",sector:"Healthcare",price:2400,prev:2350},
-{name:"Toyota",ticker:"7203.T",country:"Japan",exchange:"Tokyo",sector:"Automotive",price:1800,prev:1750},
-{name:"Sony",ticker:"6758.T",country:"Japan",exchange:"Tokyo",sector:"Technology",price:2100,prev:2150},
-{name:"Nintendo",ticker:"7974.T",country:"Japan",exchange:"Tokyo",sector:"Entertainment",price:2700,prev:2650},
-{name:"Shopify",ticker:"SHOP",country:"Canada",exchange:"TSX",sector:"Technology",price:1800,prev:1850},
-{name:"Royal Bank of Canada",ticker:"RY",country:"Canada",exchange:"TSX",sector:"Finance",price:2400,prev:2350},
-{name:"BHP",ticker:"BHP",country:"Australia",exchange:"ASX",sector:"Materials",price:2000,prev:1950},
-{name:"Commonwealth Bank",ticker:"CBA",country:"Australia",exchange:"ASX",sector:"Finance",price:2600,prev:2550},
-{name:"SAP",ticker:"SAP",country:"Germany",exchange:"XETRA",sector:"Technology",price:3100,prev:3000},
-{name:"Siemens",ticker:"SIE",country:"Germany",exchange:"XETRA",sector:"Industrials",price:2300,prev:2350},
-{name:"LVMH",ticker:"MC",country:"France",exchange:"Euronext Paris",sector:"Consumer",price:5200,prev:5100},
-{name:"Airbus",ticker:"AIR",country:"France",exchange:"Euronext Paris",sector:"Industrials",price:2900,prev:2850},
-{name:"Reliance Industries",ticker:"RELIANCE",country:"India",exchange:"NSE",sector:"Energy",price:1500,prev:1470},
-{name:"Tata Consultancy Services",ticker:"TCS",country:"India",exchange:"NSE",sector:"Technology",price:2200,prev:2250},
-{name:"Infosys",ticker:"INFY",country:"India",exchange:"NSE",sector:"Technology",price:1300,prev:1280},
-{name:"Tencent",ticker:"0700",country:"Hong Kong",exchange:"HKEX",sector:"Technology",price:4800,prev:4700},
-{name:"Alibaba",ticker:"9988",country:"Hong Kong",exchange:"HKEX",sector:"Retail",price:1900,prev:1950},
-{name:"BYD",ticker:"002594",country:"China",exchange:"Shenzhen",sector:"Automotive",price:2500,prev:2400},
-{name:"ICBC",ticker:"601398",country:"China",exchange:"Shanghai",sector:"Finance",price:800,prev:790},
-{name:"Petrobras",ticker:"PETR4",country:"Brazil",exchange:"B3",sector:"Energy",price:1200,prev:1250},
-{name:"Vale",ticker:"VALE3",country:"Brazil",exchange:"B3",sector:"Materials",price:1500,prev:1480},
-{name:"DBS Group",ticker:"D05",country:"Singapore",exchange:"SGX",sector:"Finance",price:2600,prev:2550},
-{name:"Singapore Airlines",ticker:"C6L",country:"Singapore",exchange:"SGX",sector:"Travel",price:700,prev:720},
-{name:"ASML",ticker:"ASML",country:"Netherlands",exchange:"Euronext Amsterdam",sector:"Technology",price:6500,prev:6400},
-{name:"Nestle",ticker:"NESN",country:"Switzerland",exchange:"SIX",sector:"Consumer",price:1800,prev:1820},
-{name:"Samsung Electronics",ticker:"005930",country:"South Korea",exchange:"KRX",sector:"Technology",price:1600,prev:1550},
-{name:"SK Hynix",ticker:"000660",country:"South Korea",exchange:"KRX",sector:"Technology",price:2400,prev:2300},
-{name:"America Movil",ticker:"AMX",country:"Mexico",exchange:"BMV",sector:"Telecom",price:900,prev:880}
-];
+const stockData=[
+["Apple","AAPL","United States","Technology",3200],
+["Microsoft","MSFT","United States","Technology",7100],
+["NVIDIA","NVDA","United States","Technology",4500],
+["Amazon","AMZN","United States","Retail",3300],
+["Tesla","TSLA","United States","Automotive",2500],
+["Coca-Cola","KO","United States","Consumer",1100],
+["Naspers","NPN.JO","South Africa","Technology",3800],
+["Sasol","SOL.JO","South Africa","Energy",950],
+["Shoprite","SHP.JO","South Africa","Retail",2800],
+["Capitec","CPI.JO","South Africa","Finance",2200],
+["Toyota","7203.T","Japan","Automotive",1800],
+["Sony","6758.T","Japan","Technology",2100],
+["HSBC","HSBA.L","United Kingdom","Finance",1200],
+["Shell","SHEL.L","United Kingdom","Energy",2800],
+["Shopify","SHOP","Canada","Technology",1800],
+["Royal Bank of Canada","RY","Canada","Finance",2400],
+["BHP","BHP.AX","Australia","Materials",2000],
+["SAP","SAP.DE","Germany","Technology",3100],
+["Siemens","SIE.DE","Germany","Industrials",2300],
+["LVMH","MC.PA","France","Consumer",5200],
+["Reliance Industries","RELIANCE.NS","India","Energy",1500],
+["Tencent","0700.HK","Hong Kong","Technology",4800],
+["Alibaba","9988.HK","Hong Kong","Retail",1900],
+["BYD","002594.SZ","China","Automotive",2500],
+["Petrobras","PETR4.SA","Brazil","Energy",1200],
+["Vale","VALE3.SA","Brazil","Materials",1500],
+["DBS Group","D05.SI","Singapore","Finance",2600],
+["ASML","ASML.AS","Netherlands","Technology",6500],
+["Nestle","NESN.SW","Switzerland","Consumer",1800],
+["Samsung Electronics","005930.KS","South Korea","Technology",1600]
+].map(([name,ticker,country,sector,price])=>({name,ticker,country,sector,price,initial:price,previous:price}));
 
-const original=stocks.map(s=>({...s}));
-let state;
-try{state=JSON.parse(localStorage.getItem("investwise_complete"))}catch(e){}
-if(!state||typeof state.cash!=="number"||!state.holdings||!state.cost||!Array.isArray(state.watch)||!Array.isArray(state.alerts))state={cash:100000,holdings:{},cost:{},watch:[],alerts:[],xp:0};
-if(typeof state.xp!=="number")state.xp=0;
+const $=id=>document.getElementById(id);
+let data;
+try{data=JSON.parse(localStorage.getItem("iw_clean_demo")||"null")}catch(e){data=null}
+if(!data||typeof data.cash!=="number"||!data.holdings||!Array.isArray(data.watch)){
+ data={cash:100000,holdings:{},cost:{},watch:[],xp:0}
+}
+if(!data.cost)data.cost={};
+if(typeof data.xp!=="number")data.xp=0;
 
-const history={};
-stocks.forEach(s=>history[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.96+i*.0012+Math.sin(i)*.01)));
-let chartDays=30,challengeIndex=0;
-const challenges=[
-["What is diversification?","Spreading exposure across different investments rather than relying on one."],
-["What is a stock?","A share represents ownership in a company."],
-["What is risk?","Uncertainty and the possibility of losing value."],
-["What is compounding?","Growth building on previous growth over time."],
-["Why can prices change?","Supply and demand, expectations, news, and many other factors."]
+const quiz=[
+{q:"What does diversification mean?",a:"Spreading investments across different companies, sectors, or assets."},
+{q:"Can stock prices fall?",a:"Yes. Prices can rise or fall, and returns are not guaranteed."},
+{q:"What is a share?",a:"A share represents a portion of ownership in a company."},
+{q:"What is compound growth?",a:"Growth building on previous growth over time."},
+{q:"What is a stock exchange?",a:"A marketplace where securities can be bought and sold under its rules."}
 ];
+let quizIndex=0;
+let chartHistory={};
+stockData.forEach(s=>chartHistory[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.94+i*.002+Math.sin(i)*.012)));
 
 function money(n){return "R"+Number(n||0).toLocaleString("en-ZA",{minimumFractionDigits:2,maximumFractionDigits:2})}
-function getStock(t){return stocks.find(s=>s.ticker===t)}
-function change(s){return s.prev?100*(s.price-s.prev)/s.prev:0}
-function moveHTML(s){let v=change(s),sym=v>0?"▲":v<0?"▼":"●";return `<span class="${v>0?"green":v<0?"red":""}">${sym} ${v>0?"+":""}${v.toFixed(2)}%</span>`}
-function save(){try{localStorage.setItem("investwise_complete",JSON.stringify(state))}catch(e){toast("Unable to save in this browser")}}
-function toast(m){let e=document.getElementById("toast");e.textContent=m;e.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>e.style.display="none",2600)}
-function jump(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth"})}
+function stock(t){return stockData.find(s=>s.ticker===t)}
+function percent(s){return s.previous?((s.price-s.previous)/s.previous)*100:0}
+function pctText(s){let p=percent(s);return `<span class="${p>=0?"green":"red"}">${p>=0?"▲":"▼"} ${p.toFixed(2)}%</span>`}
+function save(){try{localStorage.setItem("iw_clean_demo",JSON.stringify(data))}catch(e){}}
+function goTo(id){$(id).scrollIntoView({behavior:"smooth"})}
 
 function renderMarkets(){
-const q=search.value.trim().toLowerCase(),c=country.value,se=sector.value,ex=exchange.value;
-const list=stocks.filter(s=>`${s.name} ${s.ticker} ${s.country} ${s.exchange} ${s.sector}`.toLowerCase().includes(q)&&(c==="all"||s.country===c)&&(se==="all"||s.sector===se)&&(ex==="all"||s.exchange===ex));
-marketRows.innerHTML=list.map(s=>`<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${s.sector}</td><td>${money(s.price)}</td><td>${moveHTML(s)}</td><td><button class="secondary" onclick="toggleWatch('${s.ticker}')">${state.watch.includes(s.ticker)?"★ Saved":"☆ Watch"}</button> <button onclick="buy('${s.ticker}')">Demo Buy</button></td></tr>`).join("")||"<tr><td colspan='7'>No results found.</td></tr>";
+const q=$("search").value.trim().toLowerCase();
+const country=$("countryFilter").value;
+const sector=$("sectorFilter").value;
+const filtered=stockData.filter(s=>
+(s.name+" "+s.ticker+" "+s.country+" "+s.sector).toLowerCase().includes(q)&&
+(!country||s.country===country)&&(!sector||s.sector===sector));
+$("marketRows").innerHTML=filtered.map(s=>`
+<tr>
+<td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${s.sector}</td>
+<td>${money(s.price)}</td><td>${pctText(s)}</td>
+<td><button class="secondary" onclick="toggleWatch('${s.ticker}')">${data.watch.includes(s.ticker)?"★ Saved":"☆ Watch"}</button> <button onclick="buyStock('${s.ticker}')">Buy Demo</button></td>
+</tr>`).join("")||"<tr><td colspan='7'>No companies found.</td></tr>";
 }
+
 function renderWatch(){
-watchRows.innerHTML=state.watch.map(getStock).filter(Boolean).map(s=>`<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${money(s.price)}</td><td>${moveHTML(s)}</td><td><button onclick="buy('${s.ticker}')">Demo Buy</button> <button class="secondary" onclick="toggleWatch('${s.ticker}')">Remove</button></td></tr>`).join("")||"<tr><td colspan='6'>Watchlist is empty.</td></tr>";
+$("watchRows").innerHTML=data.watch.map(t=>stock(t)).filter(Boolean).map(s=>`
+<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${money(s.price)}</td><td>${pctText(s)}</td>
+<td><button onclick="buyStock('${s.ticker}')">Buy Demo</button> <button class="secondary" onclick="toggleWatch('${s.ticker}')">Remove</button></td></tr>`).join("")||"<tr><td colspan='6'>Your watchlist is empty.</td></tr>";
 }
+
 function toggleWatch(t){
-state.watch=state.watch.includes(t)?state.watch.filter(x=>x!==t):[...state.watch,t];save();renderAll();toast("Watchlist updated");
+data.watch=data.watch.includes(t)?data.watch.filter(x=>x!==t):[...data.watch,t];
+save();renderAll();
 }
-function buy(t){
-const s=getStock(t);if(!s)return;
-let raw=prompt("How many virtual shares would you like to buy?");
-if(raw===null)return;
-let q=Number(raw),cost=q*s.price;
-if(!Number.isInteger(q)||q<=0){toast("Enter a positive whole number.");return}
-if(!Number.isFinite(cost)||cost>state.cash){toast("Not enough virtual cash.");return}
-state.cash-=cost;state.holdings[t]=(state.holdings[t]||0)+q;state.cost[t]=(state.cost[t]||0)+cost;
-save();renderAll();toast("Demo purchase complete.");
+
+function buyStock(t){
+const s=stock(t);if(!s)return;
+let q=Number(prompt("How many virtual shares would you like to buy?"));
+if(!Number.isInteger(q)||q<=0)return;
+let cost=q*s.price;
+if(cost>data.cash){alert("Not enough virtual cash.");return}
+data.cash-=cost;
+data.holdings[t]=(data.holdings[t]||0)+q;
+data.cost[t]=(data.cost[t]||0)+cost;
+save();renderAll();
 }
-function sell(t){
-let held=state.holdings[t]||0;if(!held)return;
-let raw=prompt("How many virtual shares to sell? You have "+held);
-if(raw===null)return;
-let q=Number(raw);
-if(!Number.isInteger(q)||q<=0||q>held){toast("Invalid quantity.");return}
-let s=getStock(t);if(!s)return;
-let oldCost=state.cost[t]||0;
-state.cash+=q*s.price;state.holdings[t]=held-q;
-state.cost[t]=held===q?0:oldCost*((held-q)/held);
-if(state.holdings[t]===0){delete state.holdings[t];delete state.cost[t]}
-save();renderAll();toast("Demo sale complete.");
+
+function sellStock(t){
+let held=data.holdings[t]||0;if(!held)return;
+let q=Number(prompt("How many virtual shares would you like to sell? You own "+held));
+if(!Number.isInteger(q)||q<=0||q>held)return;
+let s=stock(t);if(!s)return;
+data.cash+=q*s.price;
+data.holdings[t]=held-q;
+data.cost[t]=(data.cost[t]||0)*(data.holdings[t]/held);
+if(data.holdings[t]===0){delete data.holdings[t];delete data.cost[t]}
+save();renderAll();
 }
+
 function renderPortfolio(){
-let total=0,invested=0;
-let rows=Object.entries(state.holdings).filter(([t,q])=>q>0).map(([t,q])=>{
-let s=getStock(t);if(!s)return "";
-total+=q*s.price;invested+=state.cost[t]||0;
-return `<tr><td>${s.name}</td><td>${t}</td><td>${q}</td><td>${money(s.price)}</td><td>${money(q*s.price)}</td><td><button onclick="buy('${t}')">Buy</button> <button class="redbtn" onclick="sell('${t}')">Sell</button></td></tr>`;
+let value=0,cost=0;
+let rows=Object.entries(data.holdings).filter(([t,q])=>q>0).map(([t,q])=>{
+let s=stock(t);if(!s)return "";
+value+=q*s.price;cost+=data.cost[t]||0;
+return `<tr><td>${s.name}</td><td>${t}</td><td>${q}</td><td>${money(s.price)}</td><td>${money(q*s.price)}</td><td><button onclick="buyStock('${t}')">Buy</button> <button class="danger" onclick="sellStock('${t}')">Sell</button></td></tr>`;
 }).join("");
-portfolioRows.innerHTML=rows||"<tr><td colspan='6'>No virtual holdings yet.</td></tr>";
-cash.textContent=money(state.cash);holdValue.textContent=money(total);account.textContent=money(state.cash+total);
-let p=document.getElementById("profit");p.textContent=money(total-invested);p.className="value "+(total-invested>=0?"green":"red");
-allocation.innerHTML=Object.entries(state.holdings).filter(([t,q])=>q>0).map(([t,q])=>{let s=getStock(t);return `<div class="card"><h3>${s?.name||t}</h3><strong>${(q*s.price/(total||1)*100).toFixed(1)}%</strong></div>`}).join("")||"<div class='info'>Your allocation appears when you own virtual shares.</div>";
+$("portfolioRows").innerHTML=rows||"<tr><td colspan='6'>You have no demo holdings.</td></tr>";
+$("cash").textContent=money(data.cash);
+$("holdingsValue").textContent=money(value);
+$("accountValue").textContent=money(data.cash+value);
+let pl=value-cost;
+$("profitLoss").textContent=money(pl);
+$("profitLoss").className="stat "+(pl>=0?"green":"red");
+$("xp").textContent=data.xp+" XP";
+$("level").textContent=data.xp<100?"Beginner":data.xp<300?"Learner":data.xp<600?"Explorer":"Market Scholar";
 }
+
 function renderMovers(){
-let sorted=[...stocks].sort((a,b)=>change(b)-change(a);
-movers.innerHTML=[...sorted.slice(0,3),...sorted.slice(-3).reverse()].map(s=>`<div class="mover"><strong>${s.name}</strong><br><small>${s.ticker}</small><h3>${money(s.price)}</h3>${moveHTML(s)}</div>`).join("");
+let sorted=[...stockData].sort((a,b)=>percent(b)-percent(a));
+$("moverList").innerHTML=sorted.slice(0,3).map(s=>`<div class="mover"><strong>${s.name}</strong><p>${s.ticker}</p><h3>${money(s.price)}</h3>${pctText(s)}</div>`).join("");
 }
-function renderAlerts(){
-alertsList.innerHTML=state.alerts.map((a,i)=>`<div class="card"><strong>${a.ticker}</strong><p>Example alert: ${money(a.price)}</p><button class="secondary" onclick="removeAlert(${i})">Remove</button></div>`).join("")||"<div class='info'>No alerts yet.</div>";
-}
-function addAlert(){let t=alertTicker.value,p=Number(alertPrice.value);if(!t||!Number.isFinite(p)||p<=0){toast("Enter a valid price.");return}state.alerts.push({ticker:t,price:p});save();renderAlerts();toast("Demo alert saved.")}
-function removeAlert(i){state.alerts.splice(i,1);save();renderAlerts()}
-function renderAll(){renderMarkets();renderWatch();renderPortfolio();renderMovers();renderAlerts();drawChart();xp.textContent=state.xp+" XP";level.textContent=state.xp<100?"Beginner":state.xp<300?"Learner":state.xp<600?"Explorer":"Market Scholar"}
-function resetAccount(){if(!confirm("Reset virtual cash, holdings, watchlist, alerts, and XP?"))return;state={cash:100000,holdings:{},cost:{},watch:[],alerts:[],xp:0};save();renderAll();toast("Demo account reset.")}
+
+function renderAll(){renderMarkets();renderWatch();renderPortfolio();renderMovers();drawChart()}
+
 function simulate(){
-stocks.forEach(s=>{s.prev=s.price;s.price=Math.max(1,s.price*(1+(Math.random()-.5)*.06));history[s.ticker].push(s.price);if(history[s.ticker].length>365)history[s.ticker].shift()});
-renderAll();toast("Example prices simulated.");
-}
-function resetPrices(){original.forEach(o=>{let s=getStock(o.ticker);if(s){s.price=o.price;s.prev=o.prev;history[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.96+i*.0012+Math.sin(i)*.01))}});renderAll();toast("Sample prices reset.")}
-function setDays(n){chartDays=n;drawChart()}
-function drawChart(){
-let cv=document.getElementById("chart");if(!cv)return;
-let s=getStock(chartTicker.value)||stocks[0],ctx=cv.getContext("2d"),dpr=window.devicePixelRatio||1,w=cv.clientWidth||600,h=230;
-cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
-let data=(history[s.ticker]||[]).slice(-Math.min(chartDays,history[s.ticker].length));
-if(data.length<2)return;
-let min=Math.min(...data)*.98,max=Math.max(...data)*1.02,range=max-min||1;
-ctx.strokeStyle="#28415d";
-for(let i=0;i<4;i++){let y=20+(h-40)*i/3;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
-ctx.strokeStyle=data[data.length-1]>=data[0]?"#4be0a1":"#ff737d";ctx.lineWidth=2;ctx.beginPath();
-data.forEach((v,i)=>{let x=i/(data.length-1)*(w-10)+5,y=h-20-(v-min)/range*(h-40);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke();
-chartInfo.textContent=s.name+" — simulated example chart, not real price history.";
-}
-function askAI(){
-let q=question.value.trim().toLowerCase();if(!q)return;
-let a="I can explain financial concepts and this simulator. I cannot predict share prices or give personal investment recommendations.";
-if(q.includes("divers"))a="Diversification means spreading investments across different companies or types of assets. It can reduce reliance on one investment but does not remove risk.";
-else if(q.includes("stock")||q.includes("share"))a="A share represents part ownership of a company. Its price can rise or fall based on expectations, company performance, news, supply, demand, and many other factors.";
-else if(q.includes("risk"))a="Risk is uncertainty about outcomes, including the possibility of losing money. Investments are not guaranteed.";
-else if(q.includes("profit")||q.includes("loss"))a="In this demo, profit/loss compares the current virtual value of holdings with their recorded virtual purchase cost. Sample prices make this illustrative only.";
-else if(q.includes("market")||q.includes("exchange"))a="A stock exchange is a marketplace where securities can be traded under exchange rules. Exchanges differ in listing requirements, currency, and trading hours.";
-else if(q.includes("buy")||q.includes("sell"))a="The buy and sell buttons only change your virtual demo portfolio. They do not contact a broker or use real money.";
-else if(q.includes("compound"))a="Compounding means growth building on earlier growth. The growth calculator is hypothetical and is not a prediction.";
-else if(q.includes("chart"))a="Charts show price changes over time. This site's chart is simulated and does not show actual market history.";
-aiAnswer.textContent=a+"\\n\\nEducational explanation only — not a recommendation to buy, sell, or hold.";
-addXP(5);save();renderAll();
-}
-function calculate(){
-let a=Number(initial.value),m=Number(monthly.value),y=Number(years.value),r=Number(rate.value)/100;
-if(!Number.isFinite(a)||!Number.isFinite(m)||!Number.isFinite(y)||!Number.isFinite(r)||a<0||m<0||y<=0||y>100||r<-.99||r>5){result.textContent="Enter valid values. Years must be 1–100 and annual rate between -99% and 500%.";return}
-let mr=Math.pow(1+r,1/12)-1,total=a;
-for(let i=0;i<y*12;i++)total=total*(1+mr)+m;
-result.textContent="Illustrative total: "+money(total)+". Contributions: "+money(a+m*y*12)+". Hypothetical only, not guaranteed.";
-}
-function revealChallenge(){challengeAnswer.style.display="block";challengeAnswer.textContent=challenges[challengeIndex][1]}
-function nextChallenge(){challengeIndex=(challengeIndex+1)%challenges.length;challengeQuestion.textContent=challenges[challengeIndex][0];challengeAnswer.style.display="none";challengeAnswer.textContent=""}
-function addXP(n){state.xp+=n;save();renderAll();toast("+"+n+" XP earned!")}
-function setup(){
-const countries=[...new Set(stocks.map(s=>s.country))].sort(),sectors=[...new Set(stocks.map(s=>s.sector))].sort(),exchanges=[...new Set(stocks.map(s=>s.exchange))].sort();
-countries.forEach(c=>country.add(new Option(c,c)));sectors.forEach(s=>sector.add(new Option(s,s)));exchanges.forEach(e=>exchange.add(new Option(e,e)));
-stocks.forEach(s=>{chartTicker.add(new Option(s.name+" ("+s.ticker+")",s.ticker));alertTicker.add(new Option(s.name+" ("+s.ticker+")",s.ticker)});
+stockData.forEach(s=>{
+s.previous=s.price;
+s.price=Math.max(1,s.price*(1+(Math.random()-.5)*.05));
+chartHistory[s.ticker].push(s.price);
+if(chartHistory[s.ticker].length>365)chartHistory[s.ticker].shift();
+});
 renderAll();
 }
-window.renderMarkets=renderMarkets;window.toggleWatch=toggleWatch;window.buy=buy;window.sell=sell;window.resetAccount=resetAccount;window.simulate=simulate;window.resetPrices=resetPrices;window.drawChart=drawChart;window.setDays=setDays;window.askAI=askAI;window.calculate=calculate;window.revealChallenge=revealChallenge;window.nextChallenge=nextChallenge;window.addXP=addXP;window.jump=jump;window.addAlert=addAlert;window.removeAlert=removeAlert;
+
+function resetPrices(){
+stockData.forEach(s=>{s.price=s.initial;s.previous=s.initial});
+stockData.forEach(s=>chartHistory[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.94+i*.002+Math.sin(i)*.012)));
+renderAll();
+}
+
+function resetAccount(){
+if(!confirm("Reset your demo cash, portfolio, watchlist and XP?"))return;
+data={cash:100000,holdings:{},cost:{},watch:[],xp:0};
+save();renderAll();
+}
+
+function drawChart(){
+let c=$("canvas"),ctx=c.getContext("2d"),s=stock($("chartSelect").value);
+if(!s)return;
+let w=c.clientWidth,h=250,dpr=window.devicePixelRatio||1;
+c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+let arr=chartHistory[s.ticker]||[],min=Math.min(...arr),max=Math.max(...arr),range=max-min||1;
+ctx.clearRect(0,0,w,h);
+ctx.strokeStyle="#29415c";
+for(let i=0;i<5;i++){let y=15+i*(h-30)/4;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+ctx.strokeStyle=arr[arr.length-1]>=arr[0]?"#4be0a1":"#ff7480";
+ctx.lineWidth=2;ctx.beginPath();
+arr.forEach((v,i)=>{let x=i/(arr.length-1)*(w-12)+6,y=h-15-(v-min)/range*(h-30);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});
+ctx.stroke();
+$("chartCaption").textContent=s.name+" — simulated example history.";
+}
+
+function calculateGrowth(){
+let start=Number($("startAmount").value),monthly=Number($("monthlyAmount").value),years=Number($("duration").value),rate=Number($("annualRate").value)/100;
+if(!Number.isFinite(start)||!Number.isFinite(monthly)||!Number.isFinite(years)||!Number.isFinite(rate)||start<0||monthly<0||years<=0||years>100||rate<-.99||rate>5){
+$("calcResult").textContent="Enter valid amounts, years (1–100), and a rate between -99% and 500%.";return}
+let m=Math.pow(1+rate,1/12)-1,total=start;
+for(let i=0;i<years*12;i++)total=total*(1+m)+monthly;
+$("calcResult").textContent="Illustrative result: "+money(total)+" — hypothetical only, not guaranteed.";
+}
+
+function showQuizAnswer(){$("quizAnswer").style.display="block";$("quizAnswer").textContent=quiz[quizIndex].a}
+function nextQuiz(){quizIndex=(quizIndex+1)%quiz.length;$("quizQuestion").textContent=quiz[quizIndex].q;$("quizAnswer").textContent="";$("quizAnswer").style.display="none"}
+function earnXP(){data.xp+=10;save();renderPortfolio();alert("You earned 10 learning XP!")}
+
+function askAssistant(){
+let q=$("aiQuestion").value.trim().toLowerCase();if(!q)return;
+let answer="I can help explain financial vocabulary and this learning simulator. I do not predict share prices or recommend specific investments.";
+if(q.includes("divers"))answer="Diversification means spreading your exposure across different companies, industries, or asset types. It can help reduce reliance on one investment but cannot remove all risk.";
+else if(q.includes("risk"))answer="Risk means uncertainty about outcomes, including the possibility of losing money. Prices can change unpredictably.";
+else if(q.includes("stock")||q.includes("share"))answer="A share is a unit of ownership in a company. Its price can move up or down for many reasons.";
+else if(q.includes("compound"))answer="Compounding occurs when growth builds upon earlier growth. This calculator uses hypothetical numbers and does not predict returns.";
+else if(q.includes("exchange"))answer="A stock exchange is a marketplace where buyers and sellers trade securities under the exchange's rules.";
+else if(q.includes("buy")||q.includes("sell"))answer="The Buy and Sell buttons only change virtual holdings and virtual cash inside this website. No real transactions occur.";
+else if(q.includes("chart"))answer="A chart displays example price movements over time. These charts are simulated and do not represent actual market history.";
+$("aiResponse").textContent=answer;
+data.xp+=5;save();renderPortfolio();
+}
+
+function populateFilters(){
+let countries=[...new Set(stockData.map(s=>s.country))].sort();
+let sectors=[...new Set(stockData.map(s=>s.sector))].sort();
+countries.forEach(c=>$("countryFilter").add(new Option(c,c)));
+sectors.forEach(s=>$("sectorFilter").add(new Option(s,s)));
+stockData.forEach(s=>$("chartSelect").add(new Option(s.name+" ("+s.ticker+")",s.ticker)));
+}
+
+$("search").addEventListener("input",renderMarkets);
+$("countryFilter").addEventListener("change",renderMarkets);
+$("sectorFilter").addEventListener("change",renderMarkets);
+$("chartSelect").addEventListener("change",drawChart);
 window.addEventListener("resize",drawChart);
-setup();
+
+window.goTo=goTo;
+window.simulate=simulate;
+window.resetPrices=resetPrices;
+window.buyStock=buyStock;
+window.sellStock=sellStock;
+window.toggleWatch=toggleWatch;
+window.resetAccount=resetAccount;
+window.calculateGrowth=calculateGrowth;
+window.showQuizAnswer=showQuizAnswer;
+window.nextQuiz=nextQuiz;
+window.earnXP=earnXP;
+window.askAssistant=askAssistant;
+
+populateFilters();
+renderAll();
 </script>
 </body>
 </html>
@@ -412,53 +448,47 @@ setup();
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InvestWise AI</title>
 <style>
-:root{--bg:#08111f;--panel:#101f33;--panel2:#172a42;--border:#29415d;--text:#edf4ff;--muted:#9eb3cb;--green:#4be0a1;--red:#ff737d;--blue:#6ea9ff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;background:#091829;border-bottom:1px solid var(--border);padding:14px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:bold;color:var(--green)}
-nav{display:flex;gap:7px;flex-wrap:wrap}
-nav a{color:#d9e8f8;text-decoration:none;padding:8px;border-radius:8px}
-nav a:hover{background:var(--panel2)}
-main{max-width:1400px;margin:auto;padding:22px 3%}
-.hero{padding:30px;border-radius:18px;background:linear-gradient(120deg,#13385b,#142a43,#174637);margin-bottom:20px}
-.hero h1{font-size:32px;margin:0 0 12px}
-.hero p{line-height:1.6;color:#c5d9ee}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:13px}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:17px}
-.card h3{font-size:14px;color:var(--muted);margin:0 0 12px}
-.value{font-size:25px;font-weight:bold;overflow-wrap:anywhere}
-section{margin:32px 0}
+body{margin:0;background:#07111e;color:#eef5ff;font-family:Arial,sans-serif}
+header{background:#0d1c2e;padding:16px 20px;border-bottom:1px solid #263c55;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:24px;font-weight:bold;color:#4be0a1}
+nav{display:flex;flex-wrap:wrap;gap:10px}
+nav a{color:white;text-decoration:none;padding:9px;border-radius:8px}
+nav a:hover{background:#203650}
+main{max-width:1300px;margin:auto;padding:20px}
+.hero{padding:25px;border-radius:15px;background:linear-gradient(130deg,#10385a,#123c32);margin-bottom:20px}
+.hero h1{font-size:32px}
+button{border:none;border-radius:8px;padding:10px 14px;background:#4be0a1;color:#062117;font-weight:bold;cursor:pointer}
+button:hover{opacity:.85}
+.secondary{background:#294966;color:white}
+.danger{background:#f06d7b;color:white}
+.card{background:#102137;border:1px solid #263e59;padding:16px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.stat{font-size:24px;font-weight:bold;margin-top:10px}
+section{margin:30px 0}
 h2{font-size:23px}
-.controls{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
-input,select{background:#0b192b;color:white;border:1px solid var(--border);border-radius:8px;padding:11px}
-input{min-width:160px;flex:1}
-button{background:var(--green);color:#062019;border:0;padding:10px 13px;border-radius:8px;font-weight:bold;cursor:pointer}
-button:hover{filter:brightness(1.08)}
-.secondary{background:#284968;color:white}
-.redbtn{background:#e8757e;color:#250b0e}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+input,select{padding:11px;background:#091729;color:white;border:1px solid #2a435f;border-radius:8px;min-width:140px}
+input{flex:1}
 .tablewrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:750px;background:var(--panel)}
-th,td{text-align:left;padding:12px;border-bottom:1px solid var(--border)}
-th{background:var(--panel2);color:#bad1e9}
-.green{color:var(--green)}
-.red{color:var(--red)}
-.notice{padding:13px;background:#342a1b;color:#f2d7a4;border:1px solid #80653b;border-radius:10px;line-height:1.5}
-.info{padding:13px;background:#142e45;border-radius:10px;color:#c0d7ee;line-height:1.5}
+table{width:100%;border-collapse:collapse;min-width:700px;background:#102137}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #263e59}
+th{background:#172b43}
+.green{color:#4be0a1}
+.red{color:#ff7480}
 .movers{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-.mover{padding:14px;background:var(--panel);border:1px solid var(--border);border-radius:10px}
-.chartbox{background:var(--panel);padding:16px;border:1px solid var(--border);border-radius:14px}
-canvas{width:100%;height:230px;display:block}
-.chartbuttons{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.chartbuttons button{background:#284663;color:white}
-.newsgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.news{padding:16px;border:1px solid var(--border);background:var(--panel);border-radius:12px}
-footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--border);margin-top:40px}
-#toast{display:none;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:#062019;padding:13px 18px;border-radius:10px;font-weight:bold;z-index:10;max-width:90%;text-align:center}
-@media(max-width:600px){main{padding:13px}.hero{padding:20px}.hero h1{font-size:27px}.value{font-size:21px}}
+.mover{background:#102137;border:1px solid #263e59;padding:14px;border-radius:10px}
+.info{background:#142d45;padding:13px;border-radius:9px;color:#c4d9ed;line-height:1.6}
+.warning{background:#332a1b;color:#f2d6a1;border:1px solid #6b5534;padding:13px;border-radius:9px;line-height:1.5}
+canvas{width:100%;height:250px;background:#0b1829;border-radius:10px}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.ai-grid a{display:block;background:#142b42;border:1px solid #294560;padding:16px;border-radius:10px;color:white;text-decoration:none;text-align:center}
+.ai-grid a:hover{background:#1d3b57}
+footer{text-align:center;color:#94abc4;padding:25px;border-top:1px solid #263e59;margin-top:30px}
+@media(max-width:600px){main{padding:12px}.hero{padding:18px}.hero h1{font-size:25px}.stat{font-size:20px}}
 </style>
 </head>
 <body>
@@ -470,56 +500,56 @@ footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid va
 <a href="#markets">Markets</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#watchlist">Watchlist</a>
-<a href="#charts">Charts</a>
-<a href="#ai">AI</a>
+<a href="#chart">Charts</a>
+<a href="#learn">Learn</a>
+<a href="#ai">AI Hub</a>
 </nav>
 </header>
 
 <main>
+
 <div class="hero">
-<h1>Global Markets Learning Hub 🌍</h1>
-<p>Explore companies, learn how stock prices move, practise with virtual money, and discover financial concepts in a simulated environment.</p>
-<button onclick="jump('markets')">Explore Markets</button>
-<button class="secondary" onclick="jump('ai')">Ask InvestWise AI</button>
+<h1>Explore the world of markets 🌍</h1>
+<p>Learn about companies, practise with virtual money, explore markets, and understand investing.</p>
+<button onclick="goTo('markets')">Explore Markets</button>
+<button class="secondary" onclick="goTo('ai')">Explore AI</button>
 </div>
 
-<div class="notice">
-<strong>Demo mode:</strong> Prices, percentage changes, market movers, and charts are simulated examples. No live quotes or real trades. No deposits or real-money investing.
+<div class="warning">
+<strong>Learning mode:</strong> Prices are fictional simulated examples. This website does not display live market data or execute real trades.
 </div>
 
 <section id="dashboard">
 <h2>📊 Dashboard</h2>
 <div class="grid">
-<div class="card"><h3>Virtual Cash</h3><div class="value" id="cash">R100,000</div></div>
-<div class="card"><h3>Portfolio Value</h3><div class="value" id="holdValue">R0</div></div>
-<div class="card"><h3>Total Account</h3><div class="value" id="account">R100,000</div></div>
-<div class="card"><h3>Demo Profit/Loss</h3><div class="value" id="profit">R0</div></div>
-<div class="card"><h3>Learning XP</h3><div class="value" id="xp">0 XP</div></div>
-<div class="card"><h3>Level</h3><div class="value" id="level">Beginner</div></div>
+<div class="card"><h3>Virtual Cash</h3><div class="stat" id="cash">R100,000.00</div></div>
+<div class="card"><h3>Holdings Value</h3><div class="stat" id="holdingsValue">R0.00</div></div>
+<div class="card"><h3>Account Value</h3><div class="stat" id="accountValue">R100,000.00</div></div>
+<div class="card"><h3>Demo Profit / Loss</h3><div class="stat" id="profitLoss">R0.00</div></div>
+<div class="card"><h3>Learning XP</h3><div class="stat" id="xp">0 XP</div></div>
+<div class="card"><h3>Level</h3><div class="stat" id="level">Beginner</div></div>
 </div>
 </section>
 
 <section id="movers">
 <h2>🚀 Simulated Market Movers</h2>
-<p class="info">Use the simulation button to practise understanding price changes. This does not represent actual market activity.</p>
 <div class="controls">
-<button onclick="simulate()">Simulate Price Movement</button>
-<button class="secondary" onclick="resetPrices()">Reset Sample Prices</button>
+<button onclick="simulate()">Simulate Market</button>
+<button class="secondary" onclick="resetPrices()">Reset Prices</button>
 </div>
-<div class="movers" id="movers"></div>
+<div id="moverList" class="movers"></div>
 </section>
 
 <section id="markets">
-<h2>🌎 Market Explorer</h2>
+<h2>🌎 Markets</h2>
 <div class="controls">
-<input id="search" placeholder="Search company, ticker, country, exchange..." oninput="renderMarkets()">
-<select id="country" onchange="renderMarkets()"><option value="all">All countries</option></select>
-<select id="sector" onchange="renderMarkets()"><option value="all">All sectors</option></select>
-<select id="exchange" onchange="renderMarkets()"><option value="all">All exchanges</option></select>
+<input id="search" placeholder="Search company, ticker or country">
+<select id="countryFilter"><option value="">All countries</option></select>
+<select id="sectorFilter"><option value="">All sectors</option></select>
 </div>
 <div class="tablewrap">
 <table>
-<thead><tr><th>Company</th><th>Ticker</th><th>Country</th><th>Sector</th><th>Example Price</th><th>Change</th><th>Actions</th></tr></thead>
+<thead><tr><th>Company</th><th>Ticker</th><th>Country</th><th>Sector</th><th>Demo Price</th><th>Change</th><th>Actions</th></tr></thead>
 <tbody id="marketRows"></tbody>
 </table>
 </div>
@@ -527,16 +557,14 @@ footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid va
 
 <section id="portfolio">
 <h2>💼 Demo Portfolio</h2>
-<p class="info">Virtual money only. Practice buying and selling without depositing money.</p>
+<div class="info">This portfolio uses virtual money only. No real money is involved.</div>
 <div class="controls"><button class="secondary" onclick="resetAccount()">Reset Demo Account</button></div>
 <div class="tablewrap">
 <table>
-<thead><tr><th>Company</th><th>Ticker</th><th>Shares</th><th>Example Price</th><th>Value</th><th>Actions</th></tr></thead>
+<thead><tr><th>Company</th><th>Ticker</th><th>Shares</th><th>Price</th><th>Value</th><th>Actions</th></tr></thead>
 <tbody id="portfolioRows"></tbody>
 </table>
 </div>
-<h3>Portfolio Allocation</h3>
-<div class="grid" id="allocation"></div>
 </section>
 
 <section id="watchlist">
@@ -549,271 +577,315 @@ footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid va
 </div>
 </section>
 
-<section id="charts">
-<h2>📉 Sample Price Charts</h2>
+<section id="chart">
+<h2>📉 Sample Charts</h2>
 <div class="controls">
-<select id="chartTicker" onchange="drawChart()"></select>
+<select id="chartSelect"></select>
+<button class="secondary" onclick="drawChart()">Refresh Chart</button>
 </div>
-<div class="chartbox">
-<div class="chartbuttons">
-<button onclick="setDays(7)">7D</button>
-<button onclick="setDays(30)">30D</button>
-<button onclick="setDays(90)">90D</button>
-<button onclick="setDays(365)">1Y</button>
-</div>
-<canvas id="chart"></canvas>
-<p class="info" id="chartInfo">Simulated example chart, not actual price history.</p>
-</div>
-</section>
-
-<section id="alerts">
-<h2>🔔 Demo Price Alerts</h2>
-<div class="controls">
-<select id="alertTicker"></select>
-<input id="alertPrice" type="number" min="0.01" step="0.01" placeholder="Example price threshold">
-<button onclick="addAlert()">Create Alert</button>
-</div>
-<div class="grid" id="alertsList"></div>
-</section>
-
-<section id="ai">
-<h2>🤖 InvestWise AI Learning Assistant</h2>
 <div class="card">
-<p>Ask educational questions about stocks, market terms, risk, diversification, charts, and the simulator.</p>
-<div class="controls">
-<input id="question" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')askAI()">
-<button onclick="askAI()">Ask AI</button>
-</div>
-<div class="info" id="aiAnswer">I can explain investing concepts and how this simulator works. I don't predict stock prices or recommend investments.</div>
+<canvas id="canvas"></canvas>
+<p class="info" id="chartCaption">Simulated chart — not actual market history.</p>
 </div>
 </section>
 
 <section id="calculator">
-<h2>🧮 Growth Calculator</h2>
+<h2>🧮 Compound Growth Calculator</h2>
 <div class="card">
 <div class="controls">
-<input id="initial" type="number" min="0" placeholder="Starting amount">
-<input id="monthly" type="number" min="0" placeholder="Monthly contribution">
-<input id="years" type="number" min="1" max="100" placeholder="Years">
-<input id="rate" type="number" placeholder="Hypothetical yearly rate %">
-<button onclick="calculate()">Calculate</button>
+<input id="startAmount" type="number" min="0" placeholder="Starting amount (R)">
+<input id="monthlyAmount" type="number" min="0" placeholder="Monthly addition (R)">
+<input id="duration" type="number" min="1" max="100" placeholder="Years">
+<input id="annualRate" type="number" placeholder="Hypothetical annual %">
+<button onclick="calculateGrowth()">Calculate</button>
 </div>
-<div class="info" id="result">Illustrative calculation only. Growth is not guaranteed.</div>
+<div class="info" id="calcResult">This is an illustration, not a prediction or guarantee.</div>
 </div>
 </section>
 
 <section id="learn">
 <h2>🎓 Learning Center</h2>
-<div class="newsgrid">
-<div class="news"><h3>📊 Stocks</h3><p>A stock represents a share of ownership in a company. Its value may rise or fall.</p></div>
-<div class="news"><h3>🌍 Diversification</h3><p>Learn about spreading risk across companies, industries, and regions.</p></div>
-<div class="news"><h3>📉 Market risk</h3><p>Prices can fall, and returns are not guaranteed.</p></div>
-<div class="news"><h3>⏳ Compounding</h3><p>Growth may build on previous growth over time.</p></div>
-<div class="news"><h3>💸 Fees</h3><p>Fees and costs reduce the money that remains invested.</p></div>
-<div class="news"><h3>🔎 Research</h3><p>Study company information, products, financial results, and risks.</p></div>
+<div class="grid">
+<div class="card"><h3>📈 Stocks</h3><p>A share represents part ownership in a company.</p></div>
+<div class="card"><h3>🌍 Diversification</h3><p>Spreading risk between different investments and industries.</p></div>
+<div class="card"><h3>⚠️ Risk</h3><p>Prices may fall. Returns are not guaranteed.</p></div>
+<div class="card"><h3>⏳ Compounding</h3><p>Growth can build upon earlier growth over time.</p></div>
+<div class="card"><h3>🔎 Research</h3><p>Learn about a company's products, finances, and risks.</p></div>
+<div class="card"><h3>💸 Fees</h3><p>Costs can reduce the money that remains invested.</p></div>
 </div>
-<h3>Daily Challenge</h3>
+<h3>Quick Quiz</h3>
 <div class="card">
-<p id="challengeQuestion">What is diversification?</p>
-<button onclick="revealChallenge()">Reveal Answer</button>
-<button class="secondary" onclick="nextChallenge()">Next Challenge</button>
-<button onclick="addXP(10)">Earn 10 XP</button>
-<div class="info" id="challengeAnswer" style="display:none"></div>
+<p id="quizQuestion">What does diversification mean?</p>
+<button onclick="showQuizAnswer()">Show Answer</button>
+<button class="secondary" onclick="nextQuiz()">Next Question</button>
+<button onclick="earnXP()">Earn 10 XP</button>
+<div id="quizAnswer" class="info" style="display:none"></div>
 </div>
 </section>
+
+<section id="ai">
+<h2>🤖 AI Hub</h2>
+<div class="info">Choose an AI service to open it. These are external services; they are not directly connected to one another.</div>
+<div class="ai-grid">
+<a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">🤖 ChatGPT</a>
+<a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">✨ Google Gemini</a>
+<a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">🧠 Claude</a>
+<a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">💠 Microsoft Copilot</a>
+<a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">🔎 Perplexity</a>
+<a href="https://www.meta.ai/" target="_blank" rel="noopener noreferrer">🦙 Meta AI</a>
+<a href="https://grok.com/" target="_blank" rel="noopener noreferrer">🚀 Grok</a>
+<a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">🐋 DeepSeek</a>
+<a href="https://chat.mistral.ai/" target="_blank" rel="noopener noreferrer">🌬️ Mistral</a>
+<a href="https://huggingface.co/chat/" target="_blank" rel="noopener noreferrer">🤗 HuggingChat</a>
+</div>
+<h3>InvestWise Learning Assistant</h3>
+<div class="card">
+<div class="controls">
+<input id="aiQuestion" placeholder="Ask about stocks, risk, charts..." onkeydown="if(event.key==='Enter')askAssistant()">
+<button onclick="askAssistant()">Ask</button>
+</div>
+<div class="info" id="aiResponse">Ask me about basic financial concepts or how this simulator works.</div>
+</div>
+</section>
+
 </main>
 
 <footer>
-InvestWise AI • Learning simulator • Example data • No real trading
+InvestWise AI | Educational simulator | Simulated data only
 </footer>
-<div id="toast"></div>
 
 <script>
 "use strict";
 
-const stocks=[
-{name:"Apple",ticker:"AAPL",country:"United States",exchange:"NASDAQ",sector:"Technology",price:3200,prev:3120},
-{name:"Microsoft",ticker:"MSFT",country:"United States",exchange:"NASDAQ",sector:"Technology",price:7100,prev:7200},
-{name:"NVIDIA",ticker:"NVDA",country:"United States",exchange:"NASDAQ",sector:"Technology",price:4500,prev:4400},
-{name:"Amazon",ticker:"AMZN",country:"United States",exchange:"NASDAQ",sector:"Retail",price:3300,prev:3200},
-{name:"Alphabet",ticker:"GOOGL",country:"United States",exchange:"NASDAQ",sector:"Technology",price:2800,prev:2850},
-{name:"Tesla",ticker:"TSLA",country:"United States",exchange:"NASDAQ",sector:"Automotive",price:2500,prev:2600},
-{name:"Coca-Cola",ticker:"KO",country:"United States",exchange:"NYSE",sector:"Consumer",price:1100,prev:1080},
-{name:"Walmart",ticker:"WMT",country:"United States",exchange:"NYSE",sector:"Retail",price:2200,prev:2160},
-{name:"JPMorgan Chase",ticker:"JPM",country:"United States",exchange:"NYSE",sector:"Finance",price:3100,prev:3200},
-{name:"Naspers",ticker:"NPN.JO",country:"South Africa",exchange:"JSE",sector:"Technology",price:3800,prev:3700},
-{name:"Prosus",ticker:"PRX.JO",country:"South Africa",exchange:"JSE",sector:"Technology",price:1200,prev:1240},
-{name:"Sasol",ticker:"SOL.JO",country:"South Africa",exchange:"JSE",sector:"Energy",price:950,prev:920},
-{name:"Shoprite",ticker:"SHP.JO",country:"South Africa",exchange:"JSE",sector:"Retail",price:2800,prev:2750},
-{name:"Vodacom",ticker:"VOD.JO",country:"South Africa",exchange:"JSE",sector:"Telecom",price:900,prev:940},
-{name:"FirstRand",ticker:"FSR.JO",country:"South Africa",exchange:"JSE",sector:"Finance",price:700,prev:690},
-{name:"Capitec",ticker:"CPI.JO",country:"South Africa",exchange:"JSE",sector:"Finance",price:2200,prev:2150},
-{name:"HSBC",ticker:"HSBA.L",country:"United Kingdom",exchange:"LSE",sector:"Finance",price:1200,prev:1180},
-{name:"Shell",ticker:"SHEL.L",country:"United Kingdom",exchange:"LSE",sector:"Energy",price:2800,prev:2900},
-{name:"AstraZeneca",ticker:"AZN.L",country:"United Kingdom",exchange:"LSE",sector:"Healthcare",price:2400,prev:2350},
-{name:"Toyota",ticker:"7203.T",country:"Japan",exchange:"Tokyo",sector:"Automotive",price:1800,prev:1750},
-{name:"Sony",ticker:"6758.T",country:"Japan",exchange:"Tokyo",sector:"Technology",price:2100,prev:2150},
-{name:"Nintendo",ticker:"7974.T",country:"Japan",exchange:"Tokyo",sector:"Entertainment",price:2700,prev:2650},
-{name:"Shopify",ticker:"SHOP",country:"Canada",exchange:"TSX",sector:"Technology",price:1800,prev:1850},
-{name:"Royal Bank of Canada",ticker:"RY",country:"Canada",exchange:"TSX",sector:"Finance",price:2400,prev:2350},
-{name:"BHP",ticker:"BHP",country:"Australia",exchange:"ASX",sector:"Materials",price:2000,prev:1950},
-{name:"Commonwealth Bank",ticker:"CBA",country:"Australia",exchange:"ASX",sector:"Finance",price:2600,prev:2550},
-{name:"SAP",ticker:"SAP",country:"Germany",exchange:"XETRA",sector:"Technology",price:3100,prev:3000},
-{name:"Siemens",ticker:"SIE",country:"Germany",exchange:"XETRA",sector:"Industrials",price:2300,prev:2350},
-{name:"LVMH",ticker:"MC",country:"France",exchange:"Euronext Paris",sector:"Consumer",price:5200,prev:5100},
-{name:"Airbus",ticker:"AIR",country:"France",exchange:"Euronext Paris",sector:"Industrials",price:2900,prev:2850},
-{name:"Reliance Industries",ticker:"RELIANCE",country:"India",exchange:"NSE",sector:"Energy",price:1500,prev:1470},
-{name:"Tata Consultancy Services",ticker:"TCS",country:"India",exchange:"NSE",sector:"Technology",price:2200,prev:2250},
-{name:"Infosys",ticker:"INFY",country:"India",exchange:"NSE",sector:"Technology",price:1300,prev:1280},
-{name:"Tencent",ticker:"0700",country:"Hong Kong",exchange:"HKEX",sector:"Technology",price:4800,prev:4700},
-{name:"Alibaba",ticker:"9988",country:"Hong Kong",exchange:"HKEX",sector:"Retail",price:1900,prev:1950},
-{name:"BYD",ticker:"002594",country:"China",exchange:"Shenzhen",sector:"Automotive",price:2500,prev:2400},
-{name:"ICBC",ticker:"601398",country:"China",exchange:"Shanghai",sector:"Finance",price:800,prev:790},
-{name:"Petrobras",ticker:"PETR4",country:"Brazil",exchange:"B3",sector:"Energy",price:1200,prev:1250},
-{name:"Vale",ticker:"VALE3",country:"Brazil",exchange:"B3",sector:"Materials",price:1500,prev:1480},
-{name:"DBS Group",ticker:"D05",country:"Singapore",exchange:"SGX",sector:"Finance",price:2600,prev:2550},
-{name:"Singapore Airlines",ticker:"C6L",country:"Singapore",exchange:"SGX",sector:"Travel",price:700,prev:720},
-{name:"ASML",ticker:"ASML",country:"Netherlands",exchange:"Euronext Amsterdam",sector:"Technology",price:6500,prev:6400},
-{name:"Nestle",ticker:"NESN",country:"Switzerland",exchange:"SIX",sector:"Consumer",price:1800,prev:1820},
-{name:"Samsung Electronics",ticker:"005930",country:"South Korea",exchange:"KRX",sector:"Technology",price:1600,prev:1550},
-{name:"SK Hynix",ticker:"000660",country:"South Korea",exchange:"KRX",sector:"Technology",price:2400,prev:2300},
-{name:"America Movil",ticker:"AMX",country:"Mexico",exchange:"BMV",sector:"Telecom",price:900,prev:880}
-];
+const stockData=[
+["Apple","AAPL","United States","Technology",3200],
+["Microsoft","MSFT","United States","Technology",7100],
+["NVIDIA","NVDA","United States","Technology",4500],
+["Amazon","AMZN","United States","Retail",3300],
+["Tesla","TSLA","United States","Automotive",2500],
+["Coca-Cola","KO","United States","Consumer",1100],
+["Naspers","NPN.JO","South Africa","Technology",3800],
+["Sasol","SOL.JO","South Africa","Energy",950],
+["Shoprite","SHP.JO","South Africa","Retail",2800],
+["Capitec","CPI.JO","South Africa","Finance",2200],
+["Toyota","7203.T","Japan","Automotive",1800],
+["Sony","6758.T","Japan","Technology",2100],
+["HSBC","HSBA.L","United Kingdom","Finance",1200],
+["Shell","SHEL.L","United Kingdom","Energy",2800],
+["Shopify","SHOP","Canada","Technology",1800],
+["Royal Bank of Canada","RY","Canada","Finance",2400],
+["BHP","BHP.AX","Australia","Materials",2000],
+["SAP","SAP.DE","Germany","Technology",3100],
+["Siemens","SIE.DE","Germany","Industrials",2300],
+["LVMH","MC.PA","France","Consumer",5200],
+["Reliance Industries","RELIANCE.NS","India","Energy",1500],
+["Tencent","0700.HK","Hong Kong","Technology",4800],
+["Alibaba","9988.HK","Hong Kong","Retail",1900],
+["BYD","002594.SZ","China","Automotive",2500],
+["Petrobras","PETR4.SA","Brazil","Energy",1200],
+["Vale","VALE3.SA","Brazil","Materials",1500],
+["DBS Group","D05.SI","Singapore","Finance",2600],
+["ASML","ASML.AS","Netherlands","Technology",6500],
+["Nestle","NESN.SW","Switzerland","Consumer",1800],
+["Samsung Electronics","005930.KS","South Korea","Technology",1600]
+].map(([name,ticker,country,sector,price])=>({name,ticker,country,sector,price,initial:price,previous:price}));
 
-const original=stocks.map(s=>({...s}));
-let state;
-try{state=JSON.parse(localStorage.getItem("investwise_complete"))}catch(e){}
-if(!state||typeof state.cash!=="number"||!state.holdings||!state.cost||!Array.isArray(state.watch)||!Array.isArray(state.alerts))state={cash:100000,holdings:{},cost:{},watch:[],alerts:[],xp:0};
-if(typeof state.xp!=="number")state.xp=0;
+const $=id=>document.getElementById(id);
+let data;
+try{data=JSON.parse(localStorage.getItem("iw_clean_demo")||"null")}catch(e){data=null}
+if(!data||typeof data.cash!=="number"||!data.holdings||!Array.isArray(data.watch)){
+ data={cash:100000,holdings:{},cost:{},watch:[],xp:0}
+}
+if(!data.cost)data.cost={};
+if(typeof data.xp!=="number")data.xp=0;
 
-const history={};
-stocks.forEach(s=>history[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.96+i*.0012+Math.sin(i)*.01)));
-let chartDays=30,challengeIndex=0;
-const challenges=[
-["What is diversification?","Spreading exposure across different investments rather than relying on one."],
-["What is a stock?","A share represents ownership in a company."],
-["What is risk?","Uncertainty and the possibility of losing value."],
-["What is compounding?","Growth building on previous growth over time."],
-["Why can prices change?","Supply and demand, expectations, news, and many other factors."]
+const quiz=[
+{q:"What does diversification mean?",a:"Spreading investments across different companies, sectors, or assets."},
+{q:"Can stock prices fall?",a:"Yes. Prices can rise or fall, and returns are not guaranteed."},
+{q:"What is a share?",a:"A share represents a portion of ownership in a company."},
+{q:"What is compound growth?",a:"Growth building on previous growth over time."},
+{q:"What is a stock exchange?",a:"A marketplace where securities can be bought and sold under its rules."}
 ];
+let quizIndex=0;
+let chartHistory={};
+stockData.forEach(s=>chartHistory[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.94+i*.002+Math.sin(i)*.012)));
 
 function money(n){return "R"+Number(n||0).toLocaleString("en-ZA",{minimumFractionDigits:2,maximumFractionDigits:2})}
-function getStock(t){return stocks.find(s=>s.ticker===t)}
-function change(s){return s.prev?100*(s.price-s.prev)/s.prev:0}
-function moveHTML(s){let v=change(s),sym=v>0?"▲":v<0?"▼":"●";return `<span class="${v>0?"green":v<0?"red":""}">${sym} ${v>0?"+":""}${v.toFixed(2)}%</span>`}
-function save(){try{localStorage.setItem("investwise_complete",JSON.stringify(state))}catch(e){toast("Unable to save in this browser")}}
-function toast(m){let e=document.getElementById("toast");e.textContent=m;e.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>e.style.display="none",2600)}
-function jump(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth"})}
+function stock(t){return stockData.find(s=>s.ticker===t)}
+function percent(s){return s.previous?((s.price-s.previous)/s.previous)*100:0}
+function pctText(s){let p=percent(s);return `<span class="${p>=0?"green":"red"}">${p>=0?"▲":"▼"} ${p.toFixed(2)}%</span>`}
+function save(){try{localStorage.setItem("iw_clean_demo",JSON.stringify(data))}catch(e){}}
+function goTo(id){$(id).scrollIntoView({behavior:"smooth"})}
 
 function renderMarkets(){
-const q=search.value.trim().toLowerCase(),c=country.value,se=sector.value,ex=exchange.value;
-const list=stocks.filter(s=>`${s.name} ${s.ticker} ${s.country} ${s.exchange} ${s.sector}`.toLowerCase().includes(q)&&(c==="all"||s.country===c)&&(se==="all"||s.sector===se)&&(ex==="all"||s.exchange===ex));
-marketRows.innerHTML=list.map(s=>`<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${s.sector}</td><td>${money(s.price)}</td><td>${moveHTML(s)}</td><td><button class="secondary" onclick="toggleWatch('${s.ticker}')">${state.watch.includes(s.ticker)?"★ Saved":"☆ Watch"}</button> <button onclick="buy('${s.ticker}')">Demo Buy</button></td></tr>`).join("")||"<tr><td colspan='7'>No results found.</td></tr>";
+const q=$("search").value.trim().toLowerCase();
+const country=$("countryFilter").value;
+const sector=$("sectorFilter").value;
+const filtered=stockData.filter(s=>
+(s.name+" "+s.ticker+" "+s.country+" "+s.sector).toLowerCase().includes(q)&&
+(!country||s.country===country)&&(!sector||s.sector===sector));
+$("marketRows").innerHTML=filtered.map(s=>`
+<tr>
+<td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${s.sector}</td>
+<td>${money(s.price)}</td><td>${pctText(s)}</td>
+<td><button class="secondary" onclick="toggleWatch('${s.ticker}')">${data.watch.includes(s.ticker)?"★ Saved":"☆ Watch"}</button> <button onclick="buyStock('${s.ticker}')">Buy Demo</button></td>
+</tr>`).join("")||"<tr><td colspan='7'>No companies found.</td></tr>";
 }
+
 function renderWatch(){
-watchRows.innerHTML=state.watch.map(getStock).filter(Boolean).map(s=>`<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${money(s.price)}</td><td>${moveHTML(s)}</td><td><button onclick="buy('${s.ticker}')">Demo Buy</button> <button class="secondary" onclick="toggleWatch('${s.ticker}')">Remove</button></td></tr>`).join("")||"<tr><td colspan='6'>Watchlist is empty.</td></tr>";
+$("watchRows").innerHTML=data.watch.map(t=>stock(t)).filter(Boolean).map(s=>`
+<tr><td>${s.name}</td><td>${s.ticker}</td><td>${s.country}</td><td>${money(s.price)}</td><td>${pctText(s)}</td>
+<td><button onclick="buyStock('${s.ticker}')">Buy Demo</button> <button class="secondary" onclick="toggleWatch('${s.ticker}')">Remove</button></td></tr>`).join("")||"<tr><td colspan='6'>Your watchlist is empty.</td></tr>";
 }
+
 function toggleWatch(t){
-state.watch=state.watch.includes(t)?state.watch.filter(x=>x!==t):[...state.watch,t];save();renderAll();toast("Watchlist updated");
+data.watch=data.watch.includes(t)?data.watch.filter(x=>x!==t):[...data.watch,t];
+save();renderAll();
 }
-function buy(t){
-const s=getStock(t);if(!s)return;
-let raw=prompt("How many virtual shares would you like to buy?");
-if(raw===null)return;
-let q=Number(raw),cost=q*s.price;
-if(!Number.isInteger(q)||q<=0){toast("Enter a positive whole number.");return}
-if(!Number.isFinite(cost)||cost>state.cash){toast("Not enough virtual cash.");return}
-state.cash-=cost;state.holdings[t]=(state.holdings[t]||0)+q;state.cost[t]=(state.cost[t]||0)+cost;
-save();renderAll();toast("Demo purchase complete.");
+
+function buyStock(t){
+const s=stock(t);if(!s)return;
+let q=Number(prompt("How many virtual shares would you like to buy?"));
+if(!Number.isInteger(q)||q<=0)return;
+let cost=q*s.price;
+if(cost>data.cash){alert("Not enough virtual cash.");return}
+data.cash-=cost;
+data.holdings[t]=(data.holdings[t]||0)+q;
+data.cost[t]=(data.cost[t]||0)+cost;
+save();renderAll();
 }
-function sell(t){
-let held=state.holdings[t]||0;if(!held)return;
-let raw=prompt("How many virtual shares to sell? You have "+held);
-if(raw===null)return;
-let q=Number(raw);
-if(!Number.isInteger(q)||q<=0||q>held){toast("Invalid quantity.");return}
-let s=getStock(t);if(!s)return;
-let oldCost=state.cost[t]||0;
-state.cash+=q*s.price;state.holdings[t]=held-q;
-state.cost[t]=held===q?0:oldCost*((held-q)/held);
-if(state.holdings[t]===0){delete state.holdings[t];delete state.cost[t]}
-save();renderAll();toast("Demo sale complete.");
+
+function sellStock(t){
+let held=data.holdings[t]||0;if(!held)return;
+let q=Number(prompt("How many virtual shares would you like to sell? You own "+held));
+if(!Number.isInteger(q)||q<=0||q>held)return;
+let s=stock(t);if(!s)return;
+data.cash+=q*s.price;
+data.holdings[t]=held-q;
+data.cost[t]=(data.cost[t]||0)*(data.holdings[t]/held);
+if(data.holdings[t]===0){delete data.holdings[t];delete data.cost[t]}
+save();renderAll();
 }
+
 function renderPortfolio(){
-let total=0,invested=0;
-let rows=Object.entries(state.holdings).filter(([t,q])=>q>0).map(([t,q])=>{
-let s=getStock(t);if(!s)return "";
-total+=q*s.price;invested+=state.cost[t]||0;
-return `<tr><td>${s.name}</td><td>${t}</td><td>${q}</td><td>${money(s.price)}</td><td>${money(q*s.price)}</td><td><button onclick="buy('${t}')">Buy</button> <button class="redbtn" onclick="sell('${t}')">Sell</button></td></tr>`;
+let value=0,cost=0;
+let rows=Object.entries(data.holdings).filter(([t,q])=>q>0).map(([t,q])=>{
+let s=stock(t);if(!s)return "";
+value+=q*s.price;cost+=data.cost[t]||0;
+return `<tr><td>${s.name}</td><td>${t}</td><td>${q}</td><td>${money(s.price)}</td><td>${money(q*s.price)}</td><td><button onclick="buyStock('${t}')">Buy</button> <button class="danger" onclick="sellStock('${t}')">Sell</button></td></tr>`;
 }).join("");
-portfolioRows.innerHTML=rows||"<tr><td colspan='6'>No virtual holdings yet.</td></tr>";
-cash.textContent=money(state.cash);holdValue.textContent=money(total);account.textContent=money(state.cash+total);
-let p=document.getElementById("profit");p.textContent=money(total-invested);p.className="value "+(total-invested>=0?"green":"red");
-allocation.innerHTML=Object.entries(state.holdings).filter(([t,q])=>q>0).map(([t,q])=>{let s=getStock(t);return `<div class="card"><h3>${s?.name||t}</h3><strong>${(q*s.price/(total||1)*100).toFixed(1)}%</strong></div>`}).join("")||"<div class='info'>Your allocation appears when you own virtual shares.</div>";
+$("portfolioRows").innerHTML=rows||"<tr><td colspan='6'>You have no demo holdings.</td></tr>";
+$("cash").textContent=money(data.cash);
+$("holdingsValue").textContent=money(value);
+$("accountValue").textContent=money(data.cash+value);
+let pl=value-cost;
+$("profitLoss").textContent=money(pl);
+$("profitLoss").className="stat "+(pl>=0?"green":"red");
+$("xp").textContent=data.xp+" XP";
+$("level").textContent=data.xp<100?"Beginner":data.xp<300?"Learner":data.xp<600?"Explorer":"Market Scholar";
 }
+
 function renderMovers(){
-let sorted=[...stocks].sort((a,b)=>change(b)-change(a);
-movers.innerHTML=[...sorted.slice(0,3),...sorted.slice(-3).reverse()].map(s=>`<div class="mover"><strong>${s.name}</strong><br><small>${s.ticker}</small><h3>${money(s.price)}</h3>${moveHTML(s)}</div>`).join("");
+let sorted=[...stockData].sort((a,b)=>percent(b)-percent(a));
+$("moverList").innerHTML=sorted.slice(0,3).map(s=>`<div class="mover"><strong>${s.name}</strong><p>${s.ticker}</p><h3>${money(s.price)}</h3>${pctText(s)}</div>`).join("");
 }
-function renderAlerts(){
-alertsList.innerHTML=state.alerts.map((a,i)=>`<div class="card"><strong>${a.ticker}</strong><p>Example alert: ${money(a.price)}</p><button class="secondary" onclick="removeAlert(${i})">Remove</button></div>`).join("")||"<div class='info'>No alerts yet.</div>";
-}
-function addAlert(){let t=alertTicker.value,p=Number(alertPrice.value);if(!t||!Number.isFinite(p)||p<=0){toast("Enter a valid price.");return}state.alerts.push({ticker:t,price:p});save();renderAlerts();toast("Demo alert saved.")}
-function removeAlert(i){state.alerts.splice(i,1);save();renderAlerts()}
-function renderAll(){renderMarkets();renderWatch();renderPortfolio();renderMovers();renderAlerts();drawChart();xp.textContent=state.xp+" XP";level.textContent=state.xp<100?"Beginner":state.xp<300?"Learner":state.xp<600?"Explorer":"Market Scholar"}
-function resetAccount(){if(!confirm("Reset virtual cash, holdings, watchlist, alerts, and XP?"))return;state={cash:100000,holdings:{},cost:{},watch:[],alerts:[],xp:0};save();renderAll();toast("Demo account reset.")}
+
+function renderAll(){renderMarkets();renderWatch();renderPortfolio();renderMovers();drawChart()}
+
 function simulate(){
-stocks.forEach(s=>{s.prev=s.price;s.price=Math.max(1,s.price*(1+(Math.random()-.5)*.06));history[s.ticker].push(s.price);if(history[s.ticker].length>365)history[s.ticker].shift()});
-renderAll();toast("Example prices simulated.");
-}
-function resetPrices(){original.forEach(o=>{let s=getStock(o.ticker);if(s){s.price=o.price;s.prev=o.prev;history[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.96+i*.0012+Math.sin(i)*.01))}});renderAll();toast("Sample prices reset.")}
-function setDays(n){chartDays=n;drawChart()}
-function drawChart(){
-let cv=document.getElementById("chart");if(!cv)return;
-let s=getStock(chartTicker.value)||stocks[0],ctx=cv.getContext("2d"),dpr=window.devicePixelRatio||1,w=cv.clientWidth||600,h=230;
-cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
-let data=(history[s.ticker]||[]).slice(-Math.min(chartDays,history[s.ticker].length));
-if(data.length<2)return;
-let min=Math.min(...data)*.98,max=Math.max(...data)*1.02,range=max-min||1;
-ctx.strokeStyle="#28415d";
-for(let i=0;i<4;i++){let y=20+(h-40)*i/3;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
-ctx.strokeStyle=data[data.length-1]>=data[0]?"#4be0a1":"#ff737d";ctx.lineWidth=2;ctx.beginPath();
-data.forEach((v,i)=>{let x=i/(data.length-1)*(w-10)+5,y=h-20-(v-min)/range*(h-40);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke();
-chartInfo.textContent=s.name+" — simulated example chart, not real price history.";
-}
-function askAI(){
-let q=question.value.trim().toLowerCase();if(!q)return;
-let a="I can explain financial concepts and this simulator. I cannot predict share prices or give personal investment recommendations.";
-if(q.includes("divers"))a="Diversification means spreading investments across different companies or types of assets. It can reduce reliance on one investment but does not remove risk.";
-else if(q.includes("stock")||q.includes("share"))a="A share represents part ownership of a company. Its price can rise or fall based on expectations, company performance, news, supply, demand, and many other factors.";
-else if(q.includes("risk"))a="Risk is uncertainty about outcomes, including the possibility of losing money. Investments are not guaranteed.";
-else if(q.includes("profit")||q.includes("loss"))a="In this demo, profit/loss compares the current virtual value of holdings with their recorded virtual purchase cost. Sample prices make this illustrative only.";
-else if(q.includes("market")||q.includes("exchange"))a="A stock exchange is a marketplace where securities can be traded under exchange rules. Exchanges differ in listing requirements, currency, and trading hours.";
-else if(q.includes("buy")||q.includes("sell"))a="The buy and sell buttons only change your virtual demo portfolio. They do not contact a broker or use real money.";
-else if(q.includes("compound"))a="Compounding means growth building on earlier growth. The growth calculator is hypothetical and is not a prediction.";
-else if(q.includes("chart"))a="Charts show price changes over time. This site's chart is simulated and does not show actual market history.";
-aiAnswer.textContent=a+"\\n\\nEducational explanation only — not a recommendation to buy, sell, or hold.";
-addXP(5);save();renderAll();
-}
-function calculate(){
-let a=Number(initial.value),m=Number(monthly.value),y=Number(years.value),r=Number(rate.value)/100;
-if(!Number.isFinite(a)||!Number.isFinite(m)||!Number.isFinite(y)||!Number.isFinite(r)||a<0||m<0||y<=0||y>100||r<-.99||r>5){result.textContent="Enter valid values. Years must be 1–100 and annual rate between -99% and 500%.";return}
-let mr=Math.pow(1+r,1/12)-1,total=a;
-for(let i=0;i<y*12;i++)total=total*(1+mr)+m;
-result.textContent="Illustrative total: "+money(total)+". Contributions: "+money(a+m*y*12)+". Hypothetical only, not guaranteed.";
-}
-function revealChallenge(){challengeAnswer.style.display="block";challengeAnswer.textContent=challenges[challengeIndex][1]}
-function nextChallenge(){challengeIndex=(challengeIndex+1)%challenges.length;challengeQuestion.textContent=challenges[challengeIndex][0];challengeAnswer.style.display="none";challengeAnswer.textContent=""}
-function addXP(n){state.xp+=n;save();renderAll();toast("+"+n+" XP earned!")}
-function setup(){
-const countries=[...new Set(stocks.map(s=>s.country))].sort(),sectors=[...new Set(stocks.map(s=>s.sector))].sort(),exchanges=[...new Set(stocks.map(s=>s.exchange))].sort();
-countries.forEach(c=>country.add(new Option(c,c)));sectors.forEach(s=>sector.add(new Option(s,s)));exchanges.forEach(e=>exchange.add(new Option(e,e)));
-stocks.forEach(s=>{chartTicker.add(new Option(s.name+" ("+s.ticker+")",s.ticker));alertTicker.add(new Option(s.name+" ("+s.ticker+")",s.ticker)});
+stockData.forEach(s=>{
+s.previous=s.price;
+s.price=Math.max(1,s.price*(1+(Math.random()-.5)*.05));
+chartHistory[s.ticker].push(s.price);
+if(chartHistory[s.ticker].length>365)chartHistory[s.ticker].shift();
+});
 renderAll();
 }
-window.renderMarkets=renderMarkets;window.toggleWatch=toggleWatch;window.buy=buy;window.sell=sell;window.resetAccount=resetAccount;window.simulate=simulate;window.resetPrices=resetPrices;window.drawChart=drawChart;window.setDays=setDays;window.askAI=askAI;window.calculate=calculate;window.revealChallenge=revealChallenge;window.nextChallenge=nextChallenge;window.addXP=addXP;window.jump=jump;window.addAlert=addAlert;window.removeAlert=removeAlert;
+
+function resetPrices(){
+stockData.forEach(s=>{s.price=s.initial;s.previous=s.initial});
+stockData.forEach(s=>chartHistory[s.ticker]=Array.from({length:30},(_,i)=>s.price*(.94+i*.002+Math.sin(i)*.012)));
+renderAll();
+}
+
+function resetAccount(){
+if(!confirm("Reset your demo cash, portfolio, watchlist and XP?"))return;
+data={cash:100000,holdings:{},cost:{},watch:[],xp:0};
+save();renderAll();
+}
+
+function drawChart(){
+let c=$("canvas"),ctx=c.getContext("2d"),s=stock($("chartSelect").value);
+if(!s)return;
+let w=c.clientWidth,h=250,dpr=window.devicePixelRatio||1;
+c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+let arr=chartHistory[s.ticker]||[],min=Math.min(...arr),max=Math.max(...arr),range=max-min||1;
+ctx.clearRect(0,0,w,h);
+ctx.strokeStyle="#29415c";
+for(let i=0;i<5;i++){let y=15+i*(h-30)/4;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+ctx.strokeStyle=arr[arr.length-1]>=arr[0]?"#4be0a1":"#ff7480";
+ctx.lineWidth=2;ctx.beginPath();
+arr.forEach((v,i)=>{let x=i/(arr.length-1)*(w-12)+6,y=h-15-(v-min)/range*(h-30);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});
+ctx.stroke();
+$("chartCaption").textContent=s.name+" — simulated example history.";
+}
+
+function calculateGrowth(){
+let start=Number($("startAmount").value),monthly=Number($("monthlyAmount").value),years=Number($("duration").value),rate=Number($("annualRate").value)/100;
+if(!Number.isFinite(start)||!Number.isFinite(monthly)||!Number.isFinite(years)||!Number.isFinite(rate)||start<0||monthly<0||years<=0||years>100||rate<-.99||rate>5){
+$("calcResult").textContent="Enter valid amounts, years (1–100), and a rate between -99% and 500%.";return}
+let m=Math.pow(1+rate,1/12)-1,total=start;
+for(let i=0;i<years*12;i++)total=total*(1+m)+monthly;
+$("calcResult").textContent="Illustrative result: "+money(total)+" — hypothetical only, not guaranteed.";
+}
+
+function showQuizAnswer(){$("quizAnswer").style.display="block";$("quizAnswer").textContent=quiz[quizIndex].a}
+function nextQuiz(){quizIndex=(quizIndex+1)%quiz.length;$("quizQuestion").textContent=quiz[quizIndex].q;$("quizAnswer").textContent="";$("quizAnswer").style.display="none"}
+function earnXP(){data.xp+=10;save();renderPortfolio();alert("You earned 10 learning XP!")}
+
+function askAssistant(){
+let q=$("aiQuestion").value.trim().toLowerCase();if(!q)return;
+let answer="I can help explain financial vocabulary and this learning simulator. I do not predict share prices or recommend specific investments.";
+if(q.includes("divers"))answer="Diversification means spreading your exposure across different companies, industries, or asset types. It can help reduce reliance on one investment but cannot remove all risk.";
+else if(q.includes("risk"))answer="Risk means uncertainty about outcomes, including the possibility of losing money. Prices can change unpredictably.";
+else if(q.includes("stock")||q.includes("share"))answer="A share is a unit of ownership in a company. Its price can move up or down for many reasons.";
+else if(q.includes("compound"))answer="Compounding occurs when growth builds upon earlier growth. This calculator uses hypothetical numbers and does not predict returns.";
+else if(q.includes("exchange"))answer="A stock exchange is a marketplace where buyers and sellers trade securities under the exchange's rules.";
+else if(q.includes("buy")||q.includes("sell"))answer="The Buy and Sell buttons only change virtual holdings and virtual cash inside this website. No real transactions occur.";
+else if(q.includes("chart"))answer="A chart displays example price movements over time. These charts are simulated and do not represent actual market history.";
+$("aiResponse").textContent=answer;
+data.xp+=5;save();renderPortfolio();
+}
+
+function populateFilters(){
+let countries=[...new Set(stockData.map(s=>s.country))].sort();
+let sectors=[...new Set(stockData.map(s=>s.sector))].sort();
+countries.forEach(c=>$("countryFilter").add(new Option(c,c)));
+sectors.forEach(s=>$("sectorFilter").add(new Option(s,s)));
+stockData.forEach(s=>$("chartSelect").add(new Option(s.name+" ("+s.ticker+")",s.ticker)));
+}
+
+$("search").addEventListener("input",renderMarkets);
+$("countryFilter").addEventListener("change",renderMarkets);
+$("sectorFilter").addEventListener("change",renderMarkets);
+$("chartSelect").addEventListener("change",drawChart);
 window.addEventListener("resize",drawChart);
-setup();
+
+window.goTo=goTo;
+window.simulate=simulate;
+window.resetPrices=resetPrices;
+window.buyStock=buyStock;
+window.sellStock=sellStock;
+window.toggleWatch=toggleWatch;
+window.resetAccount=resetAccount;
+window.calculateGrowth=calculateGrowth;
+window.showQuizAnswer=showQuizAnswer;
+window.nextQuiz=nextQuiz;
+window.earnXP=earnXP;
+window.askAssistant=askAssistant;
+
+populateFilters();
+renderAll();
 </script>
 </body>
 </html>
